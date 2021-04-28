@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+	<script type="text/javascript">
+	   // 제어문 - 조건문 - if/else/if else
+	   //      - 선택문 - switch-case문
+	   //      - 반복문 - while/for문
+	   
+	    // if문 : 조건식의 값이 참(true)일때 실행하는 코드
+		//   if(조건식){
+		// 	   실행문;
+		//   }
+	   
+	   var number = 100;
+	   document.write(number > 0? "양수입니다":"음수입니다");
+	   
+	   if(number >0){
+		   document.write("양수입니다~");		   
+	   }
+	   if(number <0){
+		   document.write("음수입니다~");		   
+	   }
+	   //변수의 데이터를 절대값 계산후 출력
+	    var number = prompt("수를 입력하세요")
+	   if(number >0){
+		   alert("절대값은"+number);
+	   }
+	   if(number <0){
+		   var number = -number;
+		   alert("절대값은"+number);
+	   }
+	   
+	   //if(0) 괄호안은 boolean값과 같은방식으로 처리. 0,null,undefined 입력시 ->false, 그외 모든 데이터 true
+	   if(0){
+		   document.write("실행");
+	   }	   
+	   
+	</script>
+
+</head>
+<body>
+
+</body>
+</html>

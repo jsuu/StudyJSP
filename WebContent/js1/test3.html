@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+	<script type="text/javascript">
+	//변수: 변화가 있는 데이터값을 저장하는 공간(메모리)
+	//ex)'A' <-- 변수와 달리 literal은 데이터가 1회성이다
+	//하나의 공간에 하나의 데이터만 저장가능
+	//데이터타입: 문자형(String), 숫자형(Number), 논리형(Boolean), Null
+	//data타입에 따라 데이터를 처리하는방식이 다름
+	//1)변수선언
+	//2)변수초기화
+	//3)변수사용             
+	//var 변수명;	선언:데이터가 저장되는 공간(메모리할당)	
+	//변수명 =데이터값;    초기화: 메모리초기화 의미	
+	//document.write(변수명);   변수사용: 메모리의 값을 사용
+	//변수명작성법-   한글x  영문숫자조합. 특수문자  _ 와  $ 2개는 사용가능.  역할의 의미를 표현(명사형) *작명site curioustore.com
+		
+	//숫자1개 저장하는 변수.   myNumber
+// 	var myNumber;
+// 	myNumber = 100;
+	var myNumber = 100;	//선언  초기화 동시에
+	
+	//var: 변수의 타입,  선언/초기화 동시에 최기화 할떄만 사용
+	document.write(myNumber+"<br>");
+	
+	myNumber = 200;
+	document.write(myNumber);
+	
+	   var myName = "jsy";
+	   document.write("<br>"+"[ 이름: "+myName+" ]");	
+	   document.write("<br>");
+
+	   // var if;  예약어는 변수이름으로 사용불가
+	   
+	   // 문자형데이터 (String) 문자데이터 숫자데이터를  " "  혹은  ' '로 감싼 데이터형태
+	   var strData = '1000';   //  문자형
+	   document.write(strData + 1);  //10001 
+	   document.write("<br>");
+	   // document.write();    html 코드 직접작성(태그표현 가능)
+	   var strData2 = "<h1>안녕하세요</h1>";
+	   document.write(strData2);
+	   document.write("<h2>"+ myName +"</h2>");
+	   
+	   //숫자데이터 (Number)
+	   var numData = 1000;	//숫자형
+	   var numData = '2000'; //'2000'  문자형으로 표현된 데이터는 숫자로 변경가능	 Number("숫자만 가능");
+	   
+	   Number("2000");
+	   document.write(Number('2000')+1);
+	   document.write("<br>");
+	   document.write(-1234);
+	   document.write("<br>");
+	   document.write(3.4567);
+	   document.write("<br>");
+	   
+	   //논리형데이터(boolean): 참(true), 거짓(false)를 나타내는 데이터형태
+	   document.write(true);
+	   document.write("<br>");
+	   document.write( 10 > 20 );	//비교연산의 결과는 항상 논리형데이터
+	   document.write("<br>");
+	   document.write(Boolean(0));	//false
+	   document.write("<br>");
+	   document.write(Boolean(1));  //true
+	   document.write("<br>");
+	   document.write(Boolean(100));  //true
+	   document.write("<br>");
+	   document.write(Boolean("안녕"));  //true
+	   document.write("<br>");
+	   //Boolean(값): 해당데이터의 논리데이터값을 리턴(계산)
+	   
+	   //숫자0, null, undefined 타입입력시 --> false리턴.   그외 true
+	   
+	   // 숫자0, null, undefined 데이터
+	   // null -> 값이 없음을 나타내는 데이터.  (초기화만 되었다)
+	   // undefined  값이 등록되지 않은 경우의 데이터(초기화x)
+	   var data = null;	//초기화 
+	   document.write(data);
+	   document.write("<br>");
+	   var data2;	//선언만 되어있고  초기화가 안되어있다(값 유무는 알수없다)
+	   document.write(data2);
+	   document.write("<br>");	   
+	
+	   </script>	
+</head>
+<body>
+<h1>WebContent/js1/test3.html</h1>
+
+
+</body>
+</html>

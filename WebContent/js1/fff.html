@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<script type="text/javascript">
+	//1. Js는 대소문자 구분
+	//2. 실행문의 끝에는 ;
+	//3. 한줄에 한문장만 처리
+	//4. 괄호는 짝이 맞아야함   
+	//5. js는 문자형 데이터  "" , ''모두 사용 가능(겹쳐사용시 주의)
+//	console.log(" "안녕" ");	
+
+	
+	//document.write()      화면출력문 
+	document.write("안녕하세요~(js)");
+	
+	// console.log()   콘솔출력문:devr용  
+	console.log("안녕하세요~(log)");
+	document.write('<br> "안녕" ');	
+	
+	document.write(100+200);	//300    N+N=N (숫자+숫자 =숫자)	
+	document.write('<br>100+200');	
+	document.write('<br>'+100+200);	//100200    S+N+N=S     문자 + 모든타입 => 문자
+	document.write('<br>'+(100+200));	//300   S+(N+N)=S   문자 + 모든타입 => 문자
+	
+	//  + 더하기 기호    1)연산자  2)연결자
+	// 1)연산자   :연산기능  
+	//    200 + 200 =400... 
+	//   (숫자+숫자 =숫자)
+	// 2)연결자 :    "test"+100  => test100
+	// 3.12 + test => 3.12test
+	// => 문자 + 모든타입 => 문자
+	
+	// 100 +200 =300
+	//  N S  N S (연산)
+	// 결과출력   [ 100 +200=300]
+	document.write('<br>'+100+'+'+200+'='+(100+200));
+	
+	//이스케이프문자  \
+	document.write("안녕		하세요.");
+	document.write("<br>");
+	document.write("안녕&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;하세요.");
+	document.write("<br>");
+	document.write("안녕\t하세요.");
+	document.write("안녕\n 하세요.");	//줄바꿈
+	document.write("<br>");
+	document.write("   \"안녕\"   ");	   //"안녕"       \ => \바로뒤 문자를 그대로 보여줌
+	
+	
+	document.write("<br>");
+//	document.write("C:/Program Files/Java/jdk1.8.0_151/bin");
+	document.write("C:\\Program Files\\Java\\jdk1.8.0_151\\bin");  // C:/Program Files/Java/jdk1.8.0_151/bin
+	
+</script>
+</head>
+<body>
+	<h1>WebContent/js1/test2.html</h1>
+	안녕하세요~(HTML)<br>
+</body>
+</html>

@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<h1>WebContent/js1/test4.html</h1>
+
+	<h2>연산자</h2>
+	<h3>1. 산술연산자</h3>
+	<p>
+			+ - * / %
+	</p>
+	<script type="text/javascript">
+		// A + B
+		// numA, numB 변수생성후 각각 100, 200 숫자로 초기화
+		// 두개의 변수를 사용해서 산술연산 실행후 결과 출력
+		// 	   //데이터 타입 알고 싶을떄 
+	   document.write(typeof myName);
+	   var numA = 100;
+	   var numB = 200;
+	   
+	   document.write("numA + numB = "+(numA + numB)+"<br>");
+	   document.write("numA - numB = "+(numA - numB)+"<br>");
+	   document.write("numA * numB = "+(numA * numB)+"<br>");
+	   document.write("numA / numB = "+(numA / numB)+"<br>");
+	   document.write("numA % numB = "+(numA % numB)+"<br>");    //% 나머지연산자
+	   
+	   //과일 300개, 상자의 크기가 5개씩 저장가능한 상자를 사용해 포장하려한다
+	   // 이떄 필요한 상자의 갯수는 몇개인가?
+		var fruits = 300;
+	   	var boxSize = 5; 
+	   document.write("필요박스개수 = "+(fruits / boxSize)+'박스<br>');    //% 나머지연산자
+	   
+	   // 475-> ? -> 400	123-> ? ->100     참고사이트: developer.mozilla.org/ko/
+// 				var num = 123;			   
+// 			   document.write(num + ' => '+((num/100*100)-(num%100))+"<br>");
+// 			   document.write(num + ' => '+(num-(num%100))+"<br>");
+			   
+			   document.write(475/100+"<br>");	//4.75
+			   //소수점 이하 버림 -> Math.floor()
+			   document.write(Math.floor(475/100)+"<br>");	//4
+			   document.write(Math.floor(475/100)*100+"<br>");	//400
+				
+			   var number = 475;
+			   document.write(Math.floor(number/100)*100+"<br>");	//400
+			   
+			   // 777 -> ? --> 771,     456->?-> 451
+			   var numBer = 777;
+			   document.write(Math.floor(numBer/10)*10 +"<br>");	// 77*10 = 770
+			   document.write(numBer + ' => '+(Math.floor(numBer/10)*10+1) +"<br>");	// 771
+	</script>
+	
+	<h3>2. 대입연산자</h3>
+	<p>	변수에 데이터를 정하는 연산
+		=(대입연산자), +=, -=, *=, /=, %= (복합대입연산)
+	</p>
+
+	<script type="text/javascript">
+	//	A += B;  <=>  A = A + B 누적합
+		
+		var num1 = 100;
+		var num2 = 3;
+		
+	     document.write("num1 :"+num1+",num2 : "+num2+"<br>");
+	     document.write( num1 += num2 );
+	     document.write("<br>");
+	     
+	     document.write("num1 :"+num1+",num2 : "+num2+"<br>");
+	     document.write( num1 += num2 );
+	     document.write("<br>");
+	     
+	     document.write("num1 :"+num1+",num2 : "+num2+"<br>");
+	     document.write( num1 = num1 + num2 );
+	     document.write("<br>");   
+	
+	     //js를 사용 테이블 작성	     
+	      document.write("<table border='1'><tr><td>"+num1+"</td><td>2</td><td>3</td></tr></table>");
+	    	    
+	     var tableTag = "";
+		     tableTag += "<table border='1'>";
+		     tableTag += "<tr>";
+		     tableTag += "<td>"+num1+"</td>";
+		     tableTag += "<td>"+num2+"</td>";
+		     tableTag += "<td>"+num1+"</td>";
+		     tableTag += "</tr>";
+		     tableTag += "</table>";
+		     
+	     document.write(tableTag);
+	     
+	     //이름   |홍길동
+	     //나이   |12
+	     //사는곳 |부산
+	     
+	     var name = '홍길동';
+	     var age = 12;
+	     var por = '부산';
+	     
+	     var tableTag = "";		// 공백문자
+		     tableTag += "<table border='1'>";
+		     tableTag += "<tr>";
+		     tableTag += "<td>이름</td>";
+		     tableTag += "<td>" + name + "</td>";
+		     tableTag += "</tr>";
+		     tableTag += "<tr>";
+		     tableTag += "<td>나이</td>";
+		     tableTag += "<td>" + age + "</td>";
+		     tableTag += "</tr>";
+		     tableTag += "<tr>";
+		     tableTag += "<td>사는곳</td>";
+		     tableTag += "<td>" + por + "</td>";
+		     tableTag += "</tr>";
+		     tableTag += "</table>";     
+		     
+		     document.write(tableTag);
+	     
+	     </script>	
+	     
+	     <hr>
+	     <table border='1'>
+	     	<tr>
+	     		<td>1</td>
+	     		<td>2</td>
+	     		<td>3</td>
+	     	</tr>	
+	     </table>	
+	    
+	     <h3>3. 증감연산자 (단항연산자)</h3>
+	<p>	숫자데이터를 1증가, 감소시키는 연산자
+	++A  /  A++,  --A / A--
+	</p>
+	<script type="text/javascript">
+		var A = 100;
+		++A;	//전위연산		:변수값을 1증가하고 사용
+		document.write(A +"<br>");
+		A++;	//후위연산		:변수값을 사용(문장이 끝났을때)하고 1증가.  ;있으므로 문장끝남
+		document.write(A +"<br>");
+		
+		A = 100;
+		document.write("++A: "+(++A) +"<br>");	//101
+		document.write("A++: "+(A++) +"<br>");	//101	
+		document.write("A : "+(A++) +"<br>");	//102
+		++A; //103
+		A++; //103  이고   ;이후에 1증가 
+		++A;  //  105   104이후 또 1증가
+		document.write("A : "+(A)+"<br>");	//102
+		</script>
+	     <h3> 4. 비교연산자 (단항연산자) </h3>
+	<p>	
+	두개의 데이터 비교. 해당연산의 결과는 boolean-true/false
+		>  <  >=  <=  ==  !=  ===(값과 데이터도 비교 모두같아야 true)  !== (값과 데이터도 비교 모두달라야 true)
+			>= 와  => 는  다르다.	  
+			=>  =이 대입연산이므로 오른쪽에 연산이 있어서는 안됨 
+			는  >비교연산을 왼쪽에 대입한다는 의미
+	</p>
+	<script type="text/javascript">
+			var A = 10;
+			var B = 5;
+		
+			document.write("A :"+A+" ,  B : "+B+"<br><br>");
+			document.write("A > B: "+(A > B)+"<br>");
+			document.write("A < B: "+(A < B)+"<br>");
+			document.write("A >=B: "+(A >= B)+"<br>");
+			document.write("A <=B: "+(A <= B)+"<br><br>");
+			
+			A = 100;
+// 			B = 100;	//숫자
+			B = "100";	//문자
+			//데이터타입 무관하게 변수값만 비교
+			document.write("A == B: "+(A == B)+"<br>");
+			document.write("A != B: "+(A != B)+"<br>");
+			
+			//  변수값  데이터타입 모두 비교
+			document.write("A === B: "+(A === B)+"<br>");
+			document.write("A !== B: "+(A !== B)+"<br>");
+		
+	</script>
+	
+	 <h3> 5. 논리연산자  </h3>
+	     <p>
+	     	논리값(t/f)을 이용 연산을 처리하는 연산자
+	     	&&(and)  ||(or)  !(not)	     	
+	     </p>
+	     <script type="text/javascript">
+	     	//논리표
+	     	// &&	 ||
+	     	// A -->  !A (해당데이터의 반대값)
+	     </script>
+	     
+	 <h3> 6. 삼항 조건연산자  </h3>
+	     <p>
+	     	조건식의 결과에 따라 실행하는 코드가 변경되는 연산자
+	     	조건식? 실행문1(참) : 실행문2(거짓); 	
+	     </p>
+		     
+		 <script type="text/javascript">
+		 	var A = 10;
+		 	var B = 20;
+//		 	document.write(A > B);  //false
+		 	document.write( (A > B)? "A가 크다": "B가 크다"+"<br>");
+		 	
+		 	//변수 A값이 50보다 크면 -> "50보다 큰수"   작은면 -> 50보다 작은수
+		 	var A = 70;
+		 	document.write((A>50)? "50보다 큰수":"50보다 작은수"+"<br>");
+		 	
+		 	//변수B의 값이 양수/음수 판별
+		 	var B= -70;
+		 	document.write((B>0)? "양수":"음수"+"<br>");
+		 	
+		 	//변수B의 절대값 계산
+		 	var B= -70;
+		 	document.write((B>0)? B:(B*-1)+"<br>");   //(B*-1)를    -B해도 된다	 	
+		 	
+// 		 	var inputData = prompt("메세지","값");		
+// 		 	alert(inputData);
+		 	
+			   //prompt 이용해 과일갯수 입력받아, 한상자의 크기가 5개씩 저장가능한 상자를 사용해 포장하려한다
+			   // 이떄 필요한 상자의 갯수는 몇개인가?
+					   
+				var inputData = prompt("과일갯수 입력","과일갯수")	   
+				//alert(inputData);
+			   	var boxSize = 5; 
+			   	alert( "필요상자 갯수:  " +(Math.floor(inputData/boxSize)+(inputData%boxSize>0? 1:0)));
+		//   	document.write("필요한 상자의 개수 : "+(Math.floor(banana/sizeOfBox)+(banana%sizeOfBox>0? 1:0 ))+"개");		   
+
+	//		   	var box = Math.ceil(inputData / boxSize);
+// 			   alert("필요상자 갯수  " + box);    //% 나머지연산자
+		 	
+	     </script>
+	     
+
+</body>
+</html>
