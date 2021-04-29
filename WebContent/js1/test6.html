@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+	<script type="text/javascript">
+		//prompt() 로그인 처리로직
+		//id pw정보 (DB -> 여기서 변수처리) 입력받는다
+		//id  입력값 과   변수값 비교체크
+		//1) 같을떄:  회원  -> pw체크 -- 맞다) 본인  --> ㅇㅇㅇ남 로그인성공
+// 								-- 다르다)  --> 비밀번호 오류 
+			
+		//2) 다를떄:	비회원    id정보가 없음 ㅠ
+		
+		var id = "jjj";
+		var inputId  = "";
+		
+		var pw = 1212;
+		var inputPw = 0;
+		
+		var inputId = prompt("아이디를 입력하세요~");
+		var inputPw = prompt("비밀번호를 입력하세요~");
+		
+		if(inputId == "jjj"){
+			if(inputPw == 1212){
+				alert(inputId + "님  로그인성공^^");
+			
+			}else{
+				alert(inputId + "님  비밀번호 오류ㅠ");		
+			}						
+		}else{ 
+			alert("비회원..    id정보가 없음 ㅠ");	
+		}		
+	
+	</script>
+
+
+</head>
+<body>
+<h1>WebContent/js1/test6.html</h1>
+</body>
+</html>
