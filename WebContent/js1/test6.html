@@ -8,10 +8,9 @@
 		//id pw정보 (DB -> 여기서 변수처리) 입력받는다
 		//id  입력값 과   변수값 비교체크
 		//1) 같을떄:  회원  -> pw체크 -- 맞다) 본인  --> ㅇㅇㅇ남 로그인성공
-// 								-- 다르다)  --> 비밀번호 오류 
-			
+// 								-- 다르다)  --> 비밀번호 오류 			
 		//2) 다를떄:	비회원    id정보가 없음 ㅠ
-		
+/* 		
 		var id = "jjj";
 		var inputId  = "";
 		
@@ -29,8 +28,53 @@
 				alert(inputId + "님  비밀번호 오류ㅠ");		
 			}						
 		}else{ 
-			alert("비회원..    id정보가 없음 ㅠ");	
+			alert(" id정보가 없음 ㅠ");	
 		}		
+*/
+		// 특정페이지로 이동
+// 		location.href = "페이지주소";		
+// 		location.href = "http://www.naver.com";
+
+//		사용자가 포털사이트 입력시 해당페이지로 이동  naver daum nate google // 대문자 or 한글로 적어도
+		
+		var site = prompt("naver daum nate google 사이트중 하나만 입력해 주세요!");
+		//alert(site);
+		var url = "";
+		
+		switch (site) {
+		case "naver":			//문자열이므로  반드시 쌍따옴표
+		case "NAVER":
+		case "네이버":
+			alert("naver페이지로 이동하겠습니다");
+//			url = "http://www.naver.com";
+			url = "www.naver.com";
+			break;
+		case "daum":
+		case "DAUM":
+		case "다음":
+//			url = "https://www.daum.net/";
+			url = "www.daum.net/";
+			break;
+		case "nate":
+		case "NATE":
+		case "네이트":
+//			url = "https://www.nate.com/";
+			url = "www.nate.com/";
+			break;
+		case "google":
+		case "GOOGLE":
+		case "구글":
+//			url = "https://www.google.com/";
+			url = "www.google.com/";
+			break;
+
+		default:
+			alert("처리불가능한 페이지입니다");
+		}
+	
+		if(url){ //해당주소가 있을경우 이동
+		  location.href = "http://" + url;
+		}
 	
 	</script>
 

@@ -30,12 +30,12 @@
 // 	   if(number <0){
 // 		   var number = -number;
 // // 		   alert("절대값은"+number);
-	   }
+	   
 	   
 	   //if(0) 괄호안은 boolean값과 같은방식으로 처리. 0,null,undefined,""(공백문자) 입력시 ->false, 그외 모든 데이터 true
 // 	   if(0){
 // 		   document.write("실행");
-	   }
+	 
 	   
 	   //나이가 20 이상- >성인   나이20미만  미성년자
 	   
@@ -66,7 +66,7 @@
 // 	 var btnValue =  confirm("질문작성");
 // 	 alert(btnValue);
 	 
-	 //회원탈퇴하시겠습니까?    확인/취소
+	 //ex 회원탈퇴하시겠습니까?    확인/취소
 	//확인 -> 정상적으로 탈퇴...     취소->  회원탈퇴 취소..
 	
 /* 	 var btnValue =  confirm("회원탈퇴하시겠습니까?");
@@ -136,32 +136,32 @@
 			
 // 	}
 
-	 //switch-case	 
-	 //  코드종료  조건
-	 //1) 처음부터 끝까지 실행한경우
-	 //2)  default는  마지막에 항상 위치하므로 끝까지 간것이다
-	 //3) 특정case에서 실행후 break문을 만난경우
-	 //   -> 특정case선택후 break가 없다면?  다음에 나오는 모든코드를 실행후 break를 찾을떄까지 실행. 
+//	 switch-case	 
+// 	  코드종료  조건
+// 	 1) 처음부터 끝까지 실행한경우
+// 	 2)  default는  마지막에 항상 위치하므로 끝까지 간것이다
+// 	 3) 특정case에서 실행후 break문을 만난경우
+// 	   -> 특정case선택후 break가 없다면?  다음에 나오는 모든코드를 실행후 break를 찾을떄까지 실행. 
 
-// 	 var num = prompt("숫자를 입력하세욧!");
-// //	 var num = 8;
+	 var num = prompt("숫자를 적어요");
+	 //var num = 8;
 
-// 	 switch (num) {
-// 	case 10: 
-// 		alert("10 !");		
-// //		break;	//
-// 	case 9: 
-// 		alert("9 !");		
-// 		break;	//해당케이스가 적용후switch-case탈출
-// 	case 8: 
-// 		alert("8 !");		
-// //		break;
-// 	case 7: 
-// 		alert("7 !");		
-// 		break;
-// 	default:		//else 와 같은 역할
-// 		break;
-	}
+	 switch(num) {
+	case 10: 
+		alert("10 !");		
+//		break;	
+	case 9: 
+		alert("9 !");		
+		break;	//해당케이스가 적용후switch-case탈출
+	case 8: 
+		alert("8 !");		
+//		break;
+	case 7: 
+		alert("7 !");		
+		break;
+	default:		//else 와 같은 역할
+		break;
+	 }	
 	
 	
 // 	 var data = prompt("문자를 입력하세욧!");
@@ -182,34 +182,34 @@
 		// 	60-69 D
 		// 	0-59 F
 		
-	var score2 = 100;	
-	var grade = "F";
-	var num = Math.floor(score2 / 10);		// 소수점이하 버린다
+// 	var score2 = 100;	
+// 	var grade = "F";
+// 	var num = Math.floor(score2 / 10);		// 소수점이하 버린다
 
-	switch (num) {
-	case 10: 
-	case 9:	
-// 		alert("A !");
-		grade = "A";
-		break;	
-	case 8: 
-// 		alert("B !");	
-		grade = "B";
-		break;	//해당케이스가 적용후switch-case탈출
-	case 7: 
-// 		alert("C !");	
-		grade = "C";
-		break;
-	case 6: 
-// 		alert("D !");
-		grade = "D";
-		break;
-	default:
-//		alert("F");		
-		grade = "F";
-	}
+// 	switch (num) {
+// 	case 10: 
+// 	case 9:	
+// // 		alert("A !");
+// 		grade = "A";
+// 		break;	
+// 	case 8: 
+// // 		alert("B !");	
+// 		grade = "B";
+// 		break;	//해당케이스가 적용후switch-case탈출
+// 	case 7: 
+// // 		alert("C !");	
+// 		grade = "C";
+// 		break;
+// 	case 6: 
+// // 		alert("D !");
+// 		grade = "D";
+// 		break;
+// 	default:
+// //		alert("F");		
+// 		grade = "F";
+// 	}
 	
-	alert("등급: "+grade);
+// 	alert("등급: "+grade);
 	
 	
 	</script>
