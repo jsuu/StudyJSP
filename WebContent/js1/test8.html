@@ -20,12 +20,13 @@
 				document.write(i+" 단<br>");
 				
 			for(var j=1;j<=9;j++){
-				document.write(i + "*" + j + "=" + i*j+"<br>");
+				document.write(i + "*" + j + "=" + (i*j)+"<br>");
 			}	
 				document.write("<hr>");
 		}
 		 */
-		// 구구단 2 ~ 9 단  가로출력
+		 
+/* 		// 구구단 2 ~ 9 단  가로출력
 	//	   document.write("<table border='1'><tr><td>"+num1+"</td><td>2</td><td>3</td></tr></table>");
 		 document.write("<table border='1'><tr>");
 		for(var d=2;d<=9;d++){
@@ -43,8 +44,32 @@
 		 document.write("<tr></table>");
 				
 						document.write("<hr>");
-				
+ */
+ 
+ 
+/*  for(var i=0;i<=9;i++){ // 1~9
+	   for(var dan=2;dan<=9;dan++){ // 2~9
+		  if(i==0){
+			  document.write("[ "+dan+"단 ] &nbsp;&nbsp;");
+		  } else{ // 1~9
+			  document.write(dan+" * "+i +" = "+(dan * i)+" &nbsp;&nbsp;");			  
+		  } 
+	   }
+    document.write("<br>");
+ }
+  */
+ 
+ for(var i=0;i<=9;i++){		//1~9	
 		
+	for(var dan=2;dan<=9;dan++){	//2~9		
+		if (i==0) {
+			document.write("["+ dan+"단]" +" &nbsp;&nbsp;&nbsp;&nbsp;");
+		}else{		
+		document.write(dan + "*" + i + "=" + i*dan+" &nbsp;&nbsp;");
+		}	
+	}
+		document.write("<br>");
+ }		
 		
 	</script>
 </head>

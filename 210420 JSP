@@ -1,0 +1,133 @@
+cmd 열어서  ver나오는지 확인
+java -version  : ver표시
+javac -version
+
+도스명령어...
+cd /   C드라이브로 이동
+cd us치고 Tab키 하면  자동완성(Users)된다
+
+javac 파일명.java	:컴파일하면  파일명.class  파일생성됨
+java  생성된클래스명   :  클래스가 실행되고 결과 출력
+--------------------------------------------------
+<참고>
+스크래치 -   초딩용
+러-플  http://rur-ple.sourceforge.net/ 
+
+-----oracle---------------------------------------------
+oracle.com  - product - java
+java 1.8은 유료화 되었으나  open source에서 무료!  oracle JDK
+------------------------------------------------
+------tomcat--------------------------------------------------
+http://tomcat.apache.org/
+download - 32-bit/64-bit Windows Service Installer (pgp, sha512)다운로드 
+설치	   shutdown port : 8003
+	Http/1.1 connector port  8088		
+----------------------------------------------------------
+
+eclipse---------------
+https://www.eclipse.org/downloads/
+Download Packages - MORE DOWNLOADS - Older Versions - Neon -3 Packages -Eclipse IDE for Java EE Developers 다운
+
+압축푼 폴더전체 이동   C:\eclipse-jee-neon-3-win32-x86_64
+
+eclipse - prefrences - general - show heap status 체크
+general- workspace -  text file encoding  -other -  UTF-8변경
+		- java - Compiler -1.8 확인
+	- Web - CSS /HTML / JSP  -encoding -UTF-8변경	
+
+C:\Program Files\Apache Software Foundation\Tomcat 8.5\bin
+  Tomcat8w실행  - start
+
+웹에서 localhost:8088         고양이tomcat확인!
+
+Dynamic web project   -next>>  generate web.xml 생성체크
+  	
+ - tomcat8.5  설치경로지정
+실행: ctrl + F11
+----------------cmd 창에서-----
+ping -t 127.0.0.1   (내컴에서 랜카드까지 확인하는법.  랜카드불량? 불규칙한숫자 나옴)    
+--------------
+StudyJSP 프로젝트
+이클립스에서 만든, 실행해서 열리는 웹페이지를
+이클립스  서버중지후 
+ 
+C:\Program Files\Apache Software Foundation\Tomcat 8.5\bin 
+톰캣서버 Tomcat8w실행 후  start시키고
+ 다시 웹페이지 열면  404에러 (page Not Found) ??
+ -----원인:  ---------------
+C:\Program Files\Apache Software Foundation\Tomcat 8.5\webapps 경로
+에 페이지정보(.war)가 없기때문에..
+	*Tomcat8w는  컴퓨터에서 작동하는 톰캣서버이고, 
+ 	이클립스 서버는 이클립스내에서 위의 톰캣서버를 연결한 것이므로 서로 다른 서버이다 !
+---------------------------
+war파일 만들어서  --> StudyJSP.war 
+Tomcat8w 에서 stop 시킨후  
+war파일을 위 경로
+C:\Program Files\Apache Software Foundation\Tomcat 8.5\webapps에 넣어서
+  다시 start해보면 위경로에 동명의 폴더가 생성됨.
+웹페이지 새로고침,,,  나옴!
+-----------------------------------------------
+
+tomcat v8.5 server[Started, Synchronized]  웹페이지가 서버와 동기화된다. 중간에 자주저장필수!
+
+script 안에서 자동완성 안될때....자동완성 ( Tern ) 설치
+      marketplace - Tern 설치
+-따로설치법 
+ 1. http://marketplace.eclipse.org/  Tern 서칭후, 인스톨버튼 마켓플레이스창에 드래그하면 설치
+ 2. 다운아이콘 팝업창 http://oss.opensagres.fr/tern.repository/1.2.0/ 주소복사
+    웹에서검색 -  이클립스 - install new s/w  -  work with창에 주소 붙여넣기
+
+프로젝트 우클릭 - configure-convert to tern .. -  jquery 2개선택 - ok (설정완료)
+
+<!-- 외부파일을 사용한 js   경로에 파일만들어..   ex)  ../의미:  상위폴더이동. 여기서는 상대경로 -->
+<script type="text/javascript" src="../js/myScript.js"></script>  
+
+	   //숫자데이터 (Number)
+	   var numData = 1000;	//숫자형
+	   var numData = '2000'; 	
+	   Number("2000");	 //'2000'  문자형으로 표현된 데이터는 숫자로 변경가능.   Number("숫자만 가능");
+	   document.write(Number('2000')+3);		//2003
+
+//논리형데이터(boolean): 참(true), 거짓(false)를 나타내는 데이터형태
+//숫자0, null, undefined 타입입력시 --> false리턴.   그외 true
+
+	   // 숫자0, null, undefined 데이터
+	   // null -> 값이 없음을 나타내는 데이터.  (초기화만 되었다)
+	   // undefined  값이 등록되지 않은 경우의 데이터(초기화x)
+	   var data = null;	//초기화 
+	   document.write(data);
+	   
+	   var data2;	//선언만 되어있고  초기화가 안되어있다(값 유무는 알수없다)
+	   document.write(data2);
+
+		var A = 100;
+		++A;	//전위연산		:변수값을 1증가하고 사용
+		document.write(A +"<br>");
+		A++;	//후위연산		:변수값을 사용(문장이 끝났을때)하고 1증가.  ;있으므로 문장끝남
+		document.write(A +"<br>");
+
+		A = 100;
+		document.write("++A: "+(++A) +"<br>");	//101
+		document.write("A++: "+(A++) +"<br>");	// 아직은 101 ?세미콜론을 만나기전. 세미콜론 이후 실행시 1증가.	
+		document.write("A : "+(++A) +"<br>");	//위에서 1증가하고 전위연산 다시 1증가--> 102
+		document.write("A : "+(A)+"<br>");	//102   
+		++A; //103
+		A++; //103  이고   ;이후에 1증가 
+		++A;  //  105,   104이후 또 1증가
+
+	
+	<h3> 4. 비교연산자 (단항연산자) </h3>
+	<p>	
+	두개의 데이터 비교. 해당연산의 결과는 boolean-true/false
+		>  <  >=  <=  ==  !=  
+		===(값과 데이터도 비교 모두같아야 true)  !== (값과 데이터도 비교 모두달라야 true)
+			>= 와  => 는  다르다.	  
+			=>  =이 대입연산이므로 오른쪽에 연산이 있어서는 안됨 
+				>비교연산을 왼쪽에 대입한다는 의미
+	</p>
+
+	//if(0) 괄호안은 boolean값과 같은방식으로 처리. 0,null,undefined,""(공백문자) 입력시 ->false,    그외 모든 데이터 true
+
+웹창에서 디버깅 모드 =>    F12  - source 에서 해당 라인no.을 클릭하고  F5  하고  F8 연타!!!   
+
+
