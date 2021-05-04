@@ -50,13 +50,13 @@
 	// * * * 
 	// * * 
 	// *  	
- 	document.write("<hr>");
-	for (var i = 5; i > 0; i--) {
-		for (var j = 1; j<i; j++) {
-			document.write("*  ");				
-		}
-		document.write("* <br>");		//줄바꿈시 마지막별도 찍는다	
-	}
+//  	document.write("<hr>");
+// 	for (var i = 5; i > 0; i--) {
+// 		for (var j = 1; j<i; j++) {
+// 			document.write("*  ");				
+// 		}
+// 		document.write("* <br>");		//줄바꿈시 마지막별도 찍는다	
+// 	}
 
 	
 	
@@ -67,14 +67,16 @@
 	//       * * 
 	//         *  	
 	
- 	document.write("<hr>");
-	for (var i = 5; i > 0; i--) {
-		for (var j = 1; j<i; j++) {
-			document.write(" ");				
-			document.write("* ");				
-		}
-		document.write("* <br>");		//줄바꿈시 마지막별도 찍는다	
-	}
+//  	document.write("<hr>");
+// 	for (var i = 0; i <=4; i++) {
+// 		for (var j = 1; j<=i; j++) {
+// 			document.write("&nbsp;&nbsp;");				
+// 		}		for (var k = 4; k >= j; k--) {
+// 				document.write("* ");				
+// 			}
+		
+// 		document.write("* <br>");		//줄바꿈시 마지막별도 찍는다	
+// 	}
 	
 	//Q. 1~20 정수중에,  2의 배수가 아니거나, 3의 배수가 아닌 모든 수의 총합을 계싼
 /* 		
@@ -113,44 +115,44 @@
 		i++;	//증감은 while{ } 실행문 안에..
 }
    */ 
-  document.write("<hr>");
+//   document.write("<hr>");
     
-    // Q.  2개의 주사위를 던져 나오는 합이 6이되는 경우의 수를 모두 출력.    
-    //  해당되는 경우의 수가 몇개인지 출력
-    var count = 0;
-    for (var i = 1; i <=6; i++) {
-    	for (var j = 1; j <=6; j++) {
-			if(i+j  ==6){
-    		document.write(i+"+"+j+"="+(i+j)+"<br>");				
-			count++;
-			}
-		}		
-	}		
-    		document.write(count + "회");				
+//     // Q.  2개의 주사위를 던져 나오는 합이 6이되는 경우의 수를 모두 출력.    
+//     //  해당되는 경우의 수가 몇개인지 출력
+//     var count = 0;
+//     for (var i = 1; i <=6; i++) {
+//     	for (var j = 1; j <=6; j++) {
+// 			if(i+j  ==6){
+//     		document.write(i+"+"+j+"="+(i+j)+"<br>");				
+// 			count++;
+// 			}
+// 		}		
+// 	}		
+//     		document.write(count + "회");				
     
-  document.write("<hr>");
+//   document.write("<hr>");
     
-    // Q.  방정식 2x + 4y = 10을 만족하는 모든해를 구하세요
-    //x,y는 정수 /   0<=x<=10   0<=y<=10    
-    for (var x = 0; x <=10; x++) {
-		for (var y = 0; y <=10 ; y++) {
-			if ((2*x+4*y) == 10) {
-				document.write("x= "+x+ ", y= "+y+ "<br>"  );
-			}
-		}
-	}    
-  document.write("<hr>");
+//     // Q.  방정식 2x + 4y = 10을 만족하는 모든해를 구하세요
+//     //x,y는 정수 /   0<=x<=10   0<=y<=10    
+//     for (var x = 0; x <=10; x++) {
+// 		for (var y = 0; y <=10 ; y++) {
+// 			if ((2*x+4*y) == 10) {
+// 				document.write("x= "+x+ ", y= "+y+ "<br>"  );
+// 			}
+// 		}
+// 	}    
+//   document.write("<hr>");
     
-    // Q.  1+(1+2)+(1+2+3)+ ..... +(1+2+3+....+10)  연산결과 출력	// 220    
-    var sum=0;
-    for (var i = 1; i <=10; i++) {
-    	for (var j = 0; j < i; j++) {
-			sum +=j;
-		}
-		sum +=i;
-	}
-		document.write("sum= "+sum);
-		
+//     // Q.  1+(1+2)+(1+2+3)+ ..... +(1+2+3+....+10)  연산결과 출력	// 220    
+//     var sum=0;
+//     for (var i = 1; i <=10; i++) {
+//     	for (var j = 0; j < i; j++) {
+// 			sum +=j;
+// 		}
+// 		sum +=i;
+// 	}
+// 		document.write("sum= "+sum);
+// 		document.write("<hr>");
 	
   /*		// 쌤 해법
     a = 1;
@@ -161,35 +163,204 @@
         1+2+3+...+10  <=>  x+10;
     */
     
-    var sum = 0;
-    var total = 0;
+//     var sum = 0;
+//     var total = 0;
     
-    for(var a=1;a<=10;a++){
-    	sum += a;
-    	total += sum;
-    	//document.write("sum : "+sum+"<br>");    	
-    	//document.write("total : "+total+"<br>");    	
-    }
+//     for(var a=1;a<=10;a++){
+//     	sum += a;
+//     	total += sum;
+//     	//document.write("sum : "+sum+"<br>");    	
+//     	//document.write("total : "+total+"<br>");    	
+//     }    
+//     document.write("total : "+total+"<br>");
     
-    document.write("total : "+total+"<br>");    
 	
-  document.write("<hr>");
+//   document.write("<hr>");
     
-    // Q.  1+(-2)+3+(-4)+5+(-6)+....  총합이 100이상이 되는 숫자 계산	//
-    var sum = 1;
-    int i=1;
-    while (sum >= 100) {
-			sum = sum + (i*(-1));
-			if (sum >= 100) {
-				document.write("총합이 100이상 sum= "+sum);
-		i++;		
-			}
+//     // Q.  1+(-2)+3+(-4)+5+(-6)+....  총합이 100이상이 될때 숫자 	//
+  
+    var sum = 0;    
+   for(var i=1;sum < 100;i++) {
+		if (i%2 ==0) {
+			sum += (i*(-1));				
+		}else{
+			sum += i;				
+		}
+	   if(sum>=100){	   
+			document.write("sum= "+sum+ "이상 되는 수 i= "+i);	//
+			break;	// sum>=100되는순간 반복문 탈출!
+	   }		
 	}
-	 
+		document.write("<hr>");
+		
+		
+	//쌤 방법1.	  
+// 		  var sum = 0;
+// 		    for(var i=1;true;i++){
+		    	
+// 		    	if(i%2 != 0){ //홀수
+// 		    		sum += i;	  	    //sum = sum + i;
+// 		    	}else{ // 짝수
+// 		    		sum -= i;
+// 		    	    //sum = sum - i;
+// 		    	    //sum += (-i);
+// 		    	    //sum = sum + (-i);
+// 		    	}
+		    	
+// 		    	if(sum >= 100){  
+// 		    		document.write("sum = "+sum+"<br>");
+// 		    		document.write("i = "+i+"<br>");		//답 199
+// 		    		break;
+// 		    	}		    	
+// 		    }  
+		    
+		
+// 	//쌤 방법 2.		    
+// 	    var sum = 0;
+//     var s = 1; // 부호 (+ / -)
+//     var num = 0;
+    
+//     for(var i=1;true;i++,s=-s){
+//     	num = s * i;
+//     	sum += num;
+    	
+//     	if(sum>=100){
+//     		document.write("sum = "+sum+", num ="+num+"<br>");
+//     		break;
+//     	}
+//     }
+    
+//     //쌤방법 3.
+//     var sum = 0;
+//     var s = 1; // 부호 (+ / -)
+//     var num = 0;
+    
+//     for(var i=1; sum<100 ;i++,s=-s){		//  ;i++,s=-s)  증감 되고, s부호가 교대로 바뀐다. 1, -1, -(-1),..
+//     	num = s * i;
+//     	sum += num;
+    	
+//     	if(sum>=100){
+//     		document.write("sum = "+sum+", num ="+num+"<br>");
+//     		break;
+//     	}
+//     }    
+// 	document.write("<hr>");
+//     //Q. 피보나치 수열 출력
+//     //	[1 1 2 3 5 8 13.....]  1번 2번은 1,  3번쨰부터 바로 전 2개의 합이 나열.  10번쨰 까지 수열 출력!
+    
+//     var num1 = 0;
+//     var num2 = 0;
+//     var num3 = 0;
+//     for (var i = 1; i<=10; i++) {
+//     	if (i==1) {
+//     		num1 =1;
+//     		document.write(1+ " ");			
+//     	}else if (i==2) {
+//     		num2 =1;
+//     		document.write(1+ " ");			
+// 		}else{
+//     		// 앞의 숫자 2개를 더해서 출력
+//     		//  	num1  num2  num3	//num1 =1,  num2 =1, num3=0
+//     		// 3 -> 1 + 1 = 2			//num1 =1,  num2 =1, num3=2
+//     		// 4 -> 1 + 2 = 3			//num1 =num2,  num2 =num3, num3 = num1+num2
+//     		// 5 -> 2 + 3 = 5
+//     		// 6 -> 3 + 5 = 8
+//     		// 7 -> 5 + 8 = 13
+//     		// 8 -> 8 + 13 = 21
+//     		// 9 -> 13 + 21 = 34
+//     		// 10 -> 21 + 34 = 55   
+    		
+//     		num3 = num1 + num2;
+//     		document.write(num3+ " ");
+    		
+//     		num1 = num2;
+//     		num2 = num3;		
+// 	}
+// }    
+// 	document.write("<hr>");
+// 	// 피보나치 ... 방법2
+//     var num1 = 1;
+//     var num2 = 1;
+//     var num3 = 0;
+	
+//     document.write(num1+ " "+num2 +" ");
+    
+//     for (var i = 0; i <8; i++) {
+//     	num3 = num1 + num2;
+//     		document.write(num3+ " ");
+    		
+//     		num1 = num2;
+//     		num2 = num3;
+// 	}
+// 	document.write("<hr>");
+	
+   // 랜덤값 Math.random()
+    // 0.0 <= Math.random() <1.0 사이의 실수 랜덤값
+    // document.write( Math.random() + "<br>");
+    
+ 	// 0.0*10 <= Math.random()*10 < 1.0 *10
+ 	// 0.0 <= Math.random()*10 < 10.0
+    // document.write( (Math.random()*10) + "<br>");
+ 	
+    // Math.floor(0.0) <= Math.floor(Math.random()*10) < Math.floor(10.0)
+    // 0 <= Math.floor(Math.random()*10) <10
+    //document.write( Math.floor(Math.random()*10) + "<br>");
+    
+    // 0+1 <= Math.floor(Math.random()*10)+1 < 10+1
+    // 1 <= Math.floor(Math.random()*10)+1 < 11
+    
+    // Math.floor(Math.random()* X )+1
+    // => 1<= 랜덤값 < X
+    
+    //Q. 숫자맟추기 게임-----------
+    //프로그램실행시 문제1개 생성 (1~100사이 랜덤값~ 정수데이터)
+    //사용자가 정답을 입력 (input -> prompt)
+    //입력을 바탕으로 판단
+    // 1) 정답 > 입력: "입력한 값이 적습니다  더 큰값을 입력하세요"
+    // 2) 정답 < 입력	"입력한 값이 큽니다  더 작은값을 입력하세요"
+    // 3) 정답 == 입력   "정답 ~~   도전횟수" + +"회"
+    // 사용자가 정답을 맞출떄 까지 진행
+//   var ans = Math.floor(Math.random()*100)+1;
+//     alert("ans= "+ans);    
+    
+// 	for (var i=1;true;i++) {
+// 	var inp = prompt("1~100사이 정수를 입력하세요~");
+	
+// 		if(inp > ans){
+// 			alert("입력한 값이 큽니다  더 작은값을 입력하세요");
+			
+// 		}else if(inp < ans){
+// 			alert("입력한 값이 적습니다  더 큰값을 입력하세요");			
+// 		}else{
+// 			document.write( "빙고 !     도전횟수 " + i +"회");
+// 			break;
+// 		}	
+// 	} 
+
+//쌤 정답 do-while
+//     var quiz = Math.floor(Math.random()* 100 )+1;
+//     var input = 0;
+//     var cnt = 0;
+//     alert("정답 : "+quiz);
+    
+//     do{
+//     	input = prompt("정답을 입력하세요");
+//     	cnt ++;
+//     	//alert("입력 : "+input);
+    	
+//     	if(quiz > input){
+//     		alert("입력한 값이 작습니다. 더 큰 값을 입력하세요.");    		
+//     	}else if(quiz < input){
+//     		alert("입력한 값이 큽니다. 더 작은 값을 입력하세요.");
+//     	}else{ // quiz == input
+//     		alert("정답  도전횟수 "+cnt+"회!");
+//     	break;
+//     	}
+//     }while(true);    
 	
 	</script>
 </head>
 <body>
-
+<h1>WebContent/js1/test9.html</h1>
 </body>
 </html>
