@@ -154,12 +154,40 @@
 // 함수 fun1()
 	// 매개변수 2개(숫자)를 전달받아 2개의 합을 리턴하는 함수
 	
-	function fun1(num1,num2){
+/* 	function fun1(num1,num2){
 		var sum = num1 + num2;
 		return sum;
 	}
 	 var result = fun1(1,2);
-	alert ("sum="+result);  
+	alert ("sum="+result);  	
+	 */
+	// 재귀함수 호출: 함수내부에서 다시 자신의 함수를 호출.  무한루프와 다른점은 실행결과를 보여줌
+// 	var cnt =0;
+// 	function myFun() {
+// 		alert("test");
+// 		cnt++;
+		
+// 		if (cnt>=5) break;		
+// //		if (cnt>=5) return;		
+// 		myFun();
+// 	}
+// 		myFun();  
+		
+	// 변수
+	//전역변수  : 전역에서 사용가능 변수
+	//지역변수  : 지역  "   "  "
+	
+	var a = 200;
+	//전역변수 = 프로그램이  생성시 변수생성.   프로그램 종료시 사라짐
+	function testA() {
+		var a = 300;
+		//지역변수  = 함수 생성후 호출시 변수가 생성됨. 함수종료시 변수는 사라짐
+	}
+	testA();	// 200
+	
+	document.write(a);
+	
+	//내장함수 : Js에 포함된 함수   alert()  prompt()  Number()  Boolean()  
 	
  
 	</script>

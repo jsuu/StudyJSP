@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+	<script type="text/javascript">
+		//정수2개를 입력받아 두개합을 출력하는 함수 -> 출력
+		
+// 		function out(num1,num2) {
+// 			sum = num1+num2;
+// 			alert(sum); 
+// 		} 
+		
+// 		out(10,20);
+		
+		//정수1개 입력받아 해당정수의 절대값을 리턴하는 함수
+		
+// 		function abs(num) {
+// // 			if (num<0) {
+// // 				num = -num;
+// // 			}
+// // 			return num;
+// 		return num<0? -num:num;
+// 		}
+		
+// 		var a = abs(-58);
+// 		alert(a);
+		
+	//Q. 함수 tot()  양의 정수1개 입력받아  
+	// 1~ 양의 정수까지 합 출력
+	//tot(10)   1~10까지 합
+	
+					
+	function tot(num) {
+			var inp = num;
+		for (var sum = 0; num >=1; num--) {
+			sum += num;
+		}
+// 			return sum;
+		alert("1~"+inp+" 까지 합 : "+sum);
+	}
+		tot(10);	
+		
+//쌤 해법.
+//   function tot(a){
+	  
+// 	  var sum = 0;
+// 	  for(var i=1;i<=a;i++){
+// 		  sum += i;
+// 	  }
+
+// 	  document.write("1~"+a+" 까지 합 : "+sum+"<br>");	  
+//   }
+  
+//   tot(10);
+//   tot(200);
+	
+	
+	
+	
+	//Q. 함수  myCal()   매개변수  숫자2개  기호1개(+ - */ % )  받아 각 입력값에 대한 결과 출력
+// 		myCal (10,"+",20) ==>결과 30
+
+// 	function myCal(num1,op,num2) {	
+// 		switch (op) {
+// 			case "+":
+// 				 result = num1 +num2;			
+// 				break;
+// 			case "-":
+// 				result = num1 - num2;			
+// 				break;
+// 			case "*":
+// 				result = num1* num2;			
+// 				break;
+// 			case "/":
+// 				result = num1 / num2;			
+// 				break;
+	
+// 			default:
+// 				break;
+// 			}	
+// 			return  result="해당 연산 불가!";	  
+// 		}
+// 	var a = myCal(10,"+",20);
+// 	alert(a);
+	
+	//쌤해법
+// 	  function myCal(num1,op,num2){
+// 	  var result = 0;
+	  
+// 	  switch(op){
+// 	  case "+":
+// 		  result = num1 + num2;
+// 		  break;
+// 	  case "-":
+// 		  result = num1 - num2;
+// 		  break;
+// 	  case "*":
+// 		  result = num1 * num2;
+// 		  break;
+// 	  case "/":
+// 		  result = num1 / num2;
+// 		  break;
+// 	  case "%":
+// 		  result = num1 % num2;
+// 		  break;
+		  
+//       default:
+//     	  result="해당 연산 불가!";	  
+// 	  }// switch
+	  
+// 	  document.write("결과 : "+result+"<br>");
+//   }//function
+  
+//   myCal(10,"+",20);
+//   myCal(40,"/",5);
+	</script>
+
+</head>
+<body>
+<h1>WebContent/js1/test11.html</h1>
+</body>
+</html>
