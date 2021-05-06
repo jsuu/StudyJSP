@@ -71,71 +71,76 @@
 				
 				
 		//쌤 해법.
-	function dayOfWeek(d){
-	  // 해당요일 정보를 바탕으로 요일을 출력(x),요일을 리턴(o)
+// 	function dayOfWeek(d){
+// 	  // 해당요일 정보를 바탕으로 요일을 출력(x),요일을 리턴(o)
 	  
-	  var myDay="";
-	  switch(d){
-	  case 0:
-		  myDay="일";
-		  break;
-	  case 1:
-		  myDay="월";
-		  break;
-	  case 2:
-		  myDay="화";
-		  break;
-	  case 3:
-		  myDay="수";
-		  break;
-	  case 4:
-		  myDay="목";
-		  break;
-	  case 5:
-		  myDay="금";
-		  break;
-	  case 6:
-		  myDay="토";
-		  break;
-	  }
+// 	  var myDay="";
+// 	  switch(d){
+// 	  case 0:
+// 		  myDay="일";
+// 		  break;
+// 	  case 1:
+// 		  myDay="월";
+// 		  break;
+// 	  case 2:
+// 		  myDay="화";
+// 		  break;
+// 	  case 3:
+// 		  myDay="수";
+// 		  break;
+// 	  case 4:
+// 		  myDay="목";
+// 		  break;
+// 	  case 5:
+// 		  myDay="금";
+// 		  break;
+// 	  case 6:
+// 		  myDay="토";
+// 		  break;
+// 	  }
 	  
-	  // 결과리턴
-	  return myDay;  
-  }
+// 	  // 결과리턴
+// 	  return myDay;  
+//   }
   
   
   //document.write(d.getDay()+"요일"); // d.getDay()(0일~6토)
-document.write(myDay+"요일"); // d.getDay()(0일~6토)
-  document.write(dayOfWeek(d.getDay())+"요일  "+"<br>"); // d.getDay()(0일~6토)
+//document.write(myDay+"요일"); // d.getDay()(0일~6토)
+ // document.write(dayOfWeek(d.getDay())+"요일  "+"<br>"); // d.getDay()(0일~6토)
   
   // whatTime() => "2021/5/6 5시 37분 00초" 출력하는 함수를 생성
   
-  function whatTime(year,month,date,hour,min,sec) {
+  function whatTime() {
+//   function whatTime(year,month,date,hour,min,sec) {
+		  var year="";
+		  var month="";
+		  var date="";
+		  var hour="";
+		  var min= "";
+		  var sec= "";
+			year = d.getFullYear();	
+			month= (d.getMonth())+1;
+			date= d.getDate();
+			hour= d.getHours();
+				if (hour >=13) {
+					hour -= 12;
+				}
+			min= d.getMinutes();
+			sec=d.getSeconds();		
+		
 	var fullDate = (year+"/"+month+"/"+date+"/ "+hour+ "시 " + min+"분 " +sec+"초");
 		return fullDate;
-	}
-	  var year="";
-	  var month="";
-	  var date="";
-	  var hour="";
-	  var min= "";
-	  var sec= "";
+	}	      
 	  
-		year = d.getFullYear();
-		month= (d.getMonth())+1;
-		date= d.getDate();
-		hour= d.getHours();
-		min= d.getMinutes();
-		sec=d.getSeconds();		
-	  
-  	var res = whatTime(year,month,date,hour,min,sec);
-	document.write(res);
+//   	var res = whatTime(year,month,date,hour,min,sec);
+  		var res = whatTime();
+		document.write(res);
 		  
-			
+			 
 	</script>
 
 </head>
 <body>
-	<h1>WebContent/js1/test2.html</h1>
+	<h1>WebContent/js2/test2.html</h1>
 </body>
 </html>
