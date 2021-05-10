@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>document 객체정보</title>
+	<script type="text/javascript">
+	//window - document 객체
+	// window.document.xxxx
+	//속성: title, location, bgColor, fgColor(글자색),....
+	//동작: write(),...
+	
+	function fun1() {
+		alert("document 속성");
+		alert(window.document);			//[object HTMLDocument]
+		console.log(window.document);		// window.document  -- html 문서전체 의미
+		alert("title: "+document.title);
+		alert("title: "+document.location);	//주소
+	}	
+	//속성변경 클릭 - 배경색 노랑으로
+	function fun2() {
+		window.document.bgColor = "black";
+	}
+	
+	//속성변경 클릭 - 배경색/글자색 랜덤으로
+// 	function fun3() {
+// 		var colorNo1 = Math.floor(Math.random()*1000000);
+// 		var colorNo2 = Math.floor(Math.random()*1000000);
+// //		alert(colorNo);
+// 		window.document.bgColor = "#"+colorNo1;
+// 		window.document.fgColor = "#"+colorNo2;		
+// 	}
+	
+	//쌤해법
+	function fun3() {
+		var col = ['red','green','blue','yellow','orange','#112233','#99ff33']
+		
+		//random (0~6)
+		//alert(Math.floor(Math.random()*7));	// 0=< Math.random() < 1  사이 실수.  
+		  var rb = Math.floor( Math.random()*7 );
+		  var rf = Math.floor( Math.random()*7 );
+		window.document.bgColor = col[rb];
+		window.document.fgColor = col[rf];
+	}
+	
+	function fun4(c) {
+		alert("fun4");
+		alert(c);					
+			window.document.bgColor = c;
+	}	
+	
+</script>
+
+</head>
+<body>
+	<h1>WebContent/js2/test7.html</h1>	https://stackoverflow.com/
+	<input type="button" value="속성확인" onclick="fun1();">
+	
+	<input type="button" value="속성변경" onclick="fun2();">
+
+	<input type="button" value="속성변경(random bgcolor)" onclick="fun3();">
+	<hr>
+	
+	<input type="radio" name="col" onclick="fun4('pink');">PINK
+	<input type="radio" name="col" onclick="fun4('orange');">ORANGE
+	<input type="radio" name="col" onclick="fun4('purple');">PURPLE
+</body>
+</html>

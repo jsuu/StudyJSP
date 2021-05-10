@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+	<script type="text/javascript">
+	// 브라우져객체모델: 브라우져객체
+	//window 객체 - 하위객체(document, screen, location, history, navigator)
+	//window 객체: 브라우져창을 표시하는 객체
+	
+	//alert("출력");     
+	//-->원래형태		window.alert("출력");
+	//기능 - 메서드( open(), alert(), prompt(), confirm(),...)
+	// window 객체이름을 생략해도 됨.
+	
+	//documetn 객체 (현재문서페이지의 정보를 나타내는 객체)
+	//  window.document.write();
+	
+	//screen객체: 사용자의 모니터정보를 제공 객체(모니터크기,해상도)
+// 	alert(screen.width);  //(객체.속성)
+// 	alert(screen.height);
+// 	alert(screen.availWidth);
+// 	alert(screen.availHeight);	//작업표시줄 제외
+	
+	//이벤트: 사용자가 브라우저에서 발생시킨 모든 동작(마우스, 키보드, ...)
+	//이벤트 핸들러 : html태그에서 on~  으로시작하는 동작들은 이벤트처리
+	//=> Js코드를 실행가능
+	
+	
+	</script>
+
+</head>
+<body onload="alert('onload 실행');">
+	<h1>WebContent/js1/test5.html</h1>
+	
+<!-- 	버튼객체생성 -->
+<input type="button" value="버튼1" onclick="alert('click!');">
+<input type="button" value="버튼2" ondblclick="alert('더블클릭!!');">
+<hr>
+<img src="../pony-260x185.jpg" height="200"
+		onmouseover="alert('mouseover ');">
+		
+<input type="text" onkeyup="alert('keyup ');">		
+
+<hr>
+   <!-- 마우스 올라왔을때(over) 초록색으로 변경,
+        마우스가 나갔을때 (out) 노란색으로 변경
+     style.background ="색상";   
+	-->
+<table>
+	<tr bgcolor="yellow" onmouseover=" style.background ='lime'" 
+						 onmouseleave=" style.background ='yellow'">
+		<td>1</td>
+		<td>1</td>
+	</tr>
+	<tr>
+		<td>1</td>
+		<td>1</td>
+	</tr>
+	<tr>
+		<td>1</td>
+		<td>1</td>
+	</tr>
+</table>
+
+</body>
+</html>

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+	<script type="text/javascript">
+// 		문자열 (String)
+// 	var (변수:stack) = new String(문자데이터: heap을거쳐 문자열공간 접근);  =>문자객체		  stack->heap->"hello"
+// 	var (변수:stack) = "문자데이터(heap공간이 아니고 '문자열'을 저장하는 공간)"; => 문자상수	  stack->"hello" (바로접근.)
+		
+	var str1 = new String("hello");
+	var str2 = "hello";
+	
+	document.write(str1 ==str2);	//true
+	document.write(str1 ===str2);	//false  type은 다름
+	
+	document.write(typeof str1);	//Object
+	document.write(typeof str2);	//String
+	
+	//문자객체 -> 속성, 기능
+	document.write("문자길이:"+str1.length);	//변수 길이 .  문자열 데이터 저장방식 (배열과 같은 형태)
+	document.write("<hr>");	
+	var msg = "itwillbusan";
+	
+	//문자스타일 변경함수
+	document.write(msg+"<hr>");
+	document.write(msg.bold()+"<hr>");
+	document.write(msg.italics()+"<hr>");
+	document.write(msg.fontcolor("blue")+"<hr>");
+	document.write(msg.fontsize("20")+"<hr>");
+	document.write(msg.toUpperCase()+"<hr>");
+	document.write(msg.toLowerCase()+"<hr>");
+	
+	//대문자, 글자크기15, 빨강,굵게 표현
+	document.write(msg.toUpperCase().fontsize("15").fontcolor("red").bold() +"<hr>");
+	// [. 연산자]를 사용해 한번에 여러개의 함수 실행 -> chaining 기법.
+	// 함수생성 -> 함수실행시 모든문자가 굵게 표현, 글자색:파랑, 크기:10  으로 변경해주는 함수
+	
+
+	function style(str) {
+		return  str.bold().fontcolor("blue").fontsize("10");		
+	}
+	
+	var sty = style("javaBdata");
+	document.write(sty);
+	document.write("<hr>");	
+	
+	//문자열 데이터 저장방식 (배열과 같은 형태)
+	//"Hello"
+	// 모두 분리되어 저장 => | H | e | l | l | o |
+	//					 0	 1	 2	 3	 4     (index)
+	//문자데이터 처리함수.
+	//charAt(index)
+	document.write(msg.charAt(0));	//var msg = "itwillbusan";
+
+	document.write("<hr>");	
+	//문자객체.subString(시작인덱스,끝인덱스 앞);
+	document.write(msg.substring(2, 6));
+	
+	document.write("<hr>");	
+	//문자객체.subString(시작인덱스);		//시작인덱스부터 끝까지 
+	document.write(msg.substring(6));
+	
+	 // slice(시작인덱스,끝 인덱스 앞),substr(시작인덱스, 개수)
+	 
+	 //문자안에 'b'가 있는지 여부 체크
+	 
+// 	 for(var i=0;i<msg.length:i++){
+// 		if(charAt(i)=="b"){
+// 			alert("b 문자있음");			
+// 		break;  //b갯수를 묻는게 아니라, 있는지 없는지만 질문하므로
+// 		}
+// 	 }
+	 
+	document.write("<hr>");	
+	 //  문자객체.indexOf("문자"): "문자"가 있으면 해당문자의 위치인덱스 리턴.  없다면  -1 리턴.
+		document.write(msg.indexOf("b"));	// 6
+	document.write("<hr>");		
+		document.write(msg.indexOf("g") >= 0? "있음":"글자없음");
+	document.write("<hr>");		
+	
+	//  문자객체.lastIndexOf("문자") 읽어가다가 마지막 문자 위치 (만약같은문자가 하나이상일떄 마지막으로 나오는문자)
+	document.write(msg.indexOf("l"));	// 4		
+	document.write("<hr>");		
+	document.write(msg.lastIndexOf("l"));	// 5
+	document.write("<hr>");		
+	
+	//문자객체 split("문자-구분자");
+	msg = "a b c d e f g";
+	document.write(msg.split(" ",3));	// 구분자 여기서는 " "를 나누어 3개 가져옴
+	document.write("<hr>");
+	document.write(msg.split(" "));	//a,b,c,d,e,f,g
+	document.write("<hr>");
+	document.write(msg.split(" ")[0]);	//a
+	document.write("<hr>");
+	document.write(msg.split(" ")[4]);	//e
+	document.write("<hr>");
+	
+	// 참고--  https://www.w3schools.com/jsref/jsref_obj_string.asp
+	
+	var jumin = "900101-1234567";
+	// 주민등록번호에서 성별정보를 구분하기
+	// 1 or 3  male         2 or 4    female
+	//해당 주민버호 성별은? :
+		
+//		document.write(jumin.substr(7,1)== 1||jumin.substr(7,1)==3? "남자":"여자");
+//쌤해법	
+// 		   var s = jumin.substr(7,1);
+		   
+// 		   if(s==1 || s==3){
+// 			   alert("남자");
+// 		   }else if(s == 2 || s==4){
+// 			  alert("여자");
+// 		   }else{
+// 			   alert("잘못된 주민번호 입니다.");
+// 		   }
+
+// 사용자 전화번화 입력
+// 010-****-4567
+	
+	var tel = prompt("전화번호를 입력하세요");
+	document.write(tel.substring(0, 4) + "****" + tel.substring(8));
+										  // ....+tel.substr(8,5));	
+	
+	
+	</script>
+
+</head>
+<body>
+	<h1>WebContent/js1/test3.html</h1>
+</body>
+</html>
