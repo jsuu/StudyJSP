@@ -104,12 +104,19 @@
 //   }
   
   
+<<<<<<< HEAD
 //   //document.write(d.getDay()+"요일"); // d.getDay()(0일~6토)
 // document.write(myDay+"요일"); // d.getDay()(0일~6토)
 //   document.write(dayOfWeek(d.getDay())+"요일  "+"<br>"); // d.getDay()(0일~6토)
   document.write("<hr>");
+=======
+  //document.write(d.getDay()+"요일"); // d.getDay()(0일~6토)
+//document.write(myDay+"요일"); // d.getDay()(0일~6토)
+ // document.write(dayOfWeek(d.getDay())+"요일  "+"<br>"); // d.getDay()(0일~6토)
+>>>>>>> refs/remotes/origin/master
   
   // whatTime() => "2021/5/6 5시 37분 00초" 출력하는 함수를 생성
+<<<<<<< HEAD
 // 		  var year="";
 // 		  var month="";
 // 		  var date="";
@@ -131,8 +138,33 @@
 // 	var fullDate = (year+"/"+month+"/"+date+"/ "+hour+ "시 " + min+"분 " +sec+"초");
 // 		return fullDate;
 // 	}	      
+=======
+  
+  function whatTime() {
+//   function whatTime(year,month,date,hour,min,sec) {
+		  var year="";
+		  var month="";
+		  var date="";
+		  var hour="";
+		  var min= "";
+		  var sec= "";
+			year = d.getFullYear();	
+			month= (d.getMonth())+1;
+			date= d.getDate();
+			hour= d.getHours();
+				if (hour >=13) {
+					hour -= 12;
+				}
+			min= d.getMinutes();
+			sec=d.getSeconds();		
+		
+	var fullDate = (year+"/"+month+"/"+date+"/ "+hour+ "시 " + min+"분 " +sec+"초");
+		return fullDate;
+	}	      
+>>>>>>> refs/remotes/origin/master
 	  
 //   	var res = whatTime(year,month,date,hour,min,sec);
+<<<<<<< HEAD
 //   		var res = whatTime();
 // 		document.write(res);
 // 		  document.write("<hr>");		  
@@ -166,10 +198,16 @@
  	var resultDay = Math.ceil(result/(1000*60*60*24));
  	alert("남은일수: "+resultDay);
  	
+=======
+  		var res = whatTime();
+		document.write(res);
+		  
+			 
+>>>>>>> refs/remotes/origin/master
 	</script>
 
 </head>
 <body>
-	<h1>WebContent/js1/test2.html</h1>
+	<h1>WebContent/js2/test2.html</h1>
 </body>
 </html>
