@@ -38,24 +38,38 @@
 	
 //	 	  이미지에 마우스를 올렸을때over 이미지변경, 자신것 말고 나머지 2개중 아무거나, 
 //         내렸을때 out           원래 자신의 이미지로 환원.
-//function fun3() {
-//var i =  Math.ceil(Math.random()*2)+1;
-//	document.img1.src= '"'+i+".jpg";
-//}
-	  function fun3(imgName){
-	 	  if(imgName == "img1"){
-	 		  //document.img1.src="2.jpg";
-	 		  document.img1.src="3.jpg";
-	 	  }
-	 	  if(imgName == 'img2'){
-	 		  document.img2.src="1.jpg";
-	 		  //document.img2.src="3.jpg";
-	 	  }
-	 	  if(imgName == "img3"){
-	 		  //document.img3.src="1.jpg";
-	 		  document.img3.src="2.jpg";
-	 	  }
-	  }
+		function fun3(imgName) {
+			do{
+				var i = Math.floor(Math.random()*3)+1;	
+				
+			}while("img"+i == imgName);
+			
+		// alert(i);
+				if(imgName == "img1"){
+					document.img1.src= i+".jpg";
+				}
+				if(imgName == "img2"){
+					document.img2.src= i+".jpg";
+				}
+				if(imgName == "img3"){
+					document.img3.src= i+".jpg";
+				}			
+		}
+		
+// 	  function fun3(imgName){
+// 	 	  if(imgName == "img1"){
+// 	 		  //document.img1.src="2.jpg";
+// 	 		  document.img1.src="3.jpg";
+// 	 	  }
+// 	 	  if(imgName == 'img2'){
+// 	 		  document.img2.src="1.jpg";
+// 	 		  //document.img2.src="3.jpg";
+// 	 	  }
+// 	 	  if(imgName == "img3"){
+// 	 		  //document.img3.src="1.jpg";
+// 	 		  document.img3.src="2.jpg";
+// 	 	  }
+// 	  }
 	  
 	  function fun4(imgName){
 	 	  if(imgName == "img1"){
@@ -76,7 +90,7 @@
  <img src="2.jpg" name="img2" onmouseover="fun3('img2');" onmouseout="fun4('img2');">
  <img src="3.jpg" name="img3" onmouseover="fun3('img3');" onmouseout="fun4('img3');">
 	<hr>
-  <hr>
+ 
 	<input type="button" value="이미지 버튼 정보" onclick="fun1();"> 
 	<input type="button" value="이미지 속성 변경" onclick="fun2();">
 </body>
