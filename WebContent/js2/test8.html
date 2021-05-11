@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title></title>
+	<script type="text/javascript">
+	//window - location 객체 : 브라우저 주소창에 대한 정보를 저장하는 객체
+	// -> (window).location.속성 /   (window).location.동작()
+	//속성-->   .href   .protocol   .hostname   .host  .port  .search
+	
+	function fun1() {
+		alert("href: "+window.location.href);	//...href = "주소"  에 따라 이동이 가능함
+		alert("protocol: "+location.protocol);	//http:
+		alert("hostname: "+location.hostname);	//localhost
+		alert("host: "+location.host);			//localhost:8088	*여기서는 host > 서버이름 톰캣
+		alert("port: "+location.port);			//8088
+		alert("search: "+location.search);			// 주소창에 검색쿼리. ex) ...?name=jdjd&age=20
+	}
+	
+	//locatio.href 속성값변경
+	//test1.html
+	function fun2() {
+// 		window.location.href = "test1.html";	//...href = "주소" 로 page이동
+		window.location.href = "../웹프로그래밍.txt";	// 
+	}
+	
+	location.reload();	// page 새로고침
+	// page이동            . replace() 는   .href 와 같다
+	location.replace("test1.html");	
+	
+	
+</script>
+
+</head>
+<body>
+	<h1>WebContent/js2/test8.html</h1>
+	
+	<input type="button" value="location 속성값확인" onclick="fun1();"><br>
+	<input type="button" value="location 속성값변경" onclick="fun2();"><br>
+	
+</body>	
+</html>

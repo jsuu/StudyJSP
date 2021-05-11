@@ -100,8 +100,9 @@
    //2) [".co.kr",".com",".net",".or.kr",".go.kr"] 해당 주소만 정상이메일 판단
    var addrUrl = [".co.kr",".com",".net",".or.kr",".go.kr"];
    
+   // 문자객체.indexOf("문자"): "문자"가 있으면 해당문자의 위치인덱스 리턴.  없다면  -1 리턴.
    for(var i =0;i<addrUrl.length;i++){
-	   if( emailValue.indexOf(addrUrl[i]) > -1){
+	   if( emailValue.indexOf(addrUrl[i]) > -1){	//indexOf()
 		 //  alert("정상 이메일입니다.");
 		   check2 = true;
 	   }
