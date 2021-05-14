@@ -37,8 +37,8 @@
 			alert("ID 정보를 입력하세요^^");	
 			document.fr.userID.focus();
 			//break;   (x)
-			//함수 종료
-			return;
+			// return으로 함수 종료, 하지않으면  아래 비번 주민번호.... 계속 alert가 나온다
+			 return;
 		}else{
 			alert("ID 정보입력완료! ");
 // 			페이지 이동(submit)
@@ -84,13 +84,13 @@
 			var msg = document.fr.msg.value;
 			
 			// onsubmit="return fun3()";
-			//           return  (x 없거나) / true => sumbit 이벤트 진행O
-			//           return  false => submit 이벤트 진행 X   
+			//           return  (x 없거나) / return true => sumbit 이벤트 진행 
+			//           return  false => submit 이벤트 진행 x  
 			if(id == ""){
 			    alert("아이디를 입력하세요");
 			    document.fr.userID.focus();
 			    return false; //return으로 함수가 종료되고 false를 넘기므로 onsubmit= return false (이벤트 진행이 안되도록 막는다.)
-			}		
+			}		 
 			if(pw == ""){
 				alert(" 비밀번호를 입력하세요 ");
 				document.fr.userPW.focus();
@@ -126,9 +126,9 @@
 		<!-- 	-->
 		<form action="test.jsp" name="fr"  onsubmit="return fun3();">	<!--return이 있으므로 submit을 제어한다  -->
 			아이디: <input type="text" name="userID" value=""><br>		<!--  name= 파라미터가 된다.	-->
-			비밀번호: <input type="password" name="userPW" value=""><br>
+			비밀번호: <input type="password" name="userPW" value="" ><br>
 			주민번호: <input type="text" name="ju1" value="">-<input type="text" name="ju2" value=""><br>
-			하고싶은말: <textarea rows="5" cols="50" name="msg" value=""></textarea><br>
+			하고싶은말: <textarea rows="5" cols="50" name="msg" value="" ></textarea><br>
 			<hr>
 			
 			<input type="submit" value="정보입력">
@@ -138,7 +138,7 @@
 			<input type="button" value="값 확인후 이동" onclick="fun2();">
 			
 		</form>
-	
+	</fieldset>
 	 
 </body>
 </html>
