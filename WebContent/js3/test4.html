@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+	<script type="text/javascript">
+	//window-document- form - 체크박스이름[0] 객체
+	//window-document- form - 라디오버튼이름[0] 객체
+	
+	function fun1(){
+		alert("라디오버튼이름: "+window.document.forms[0].gender[0].name);
+		console.log(window.document.forms[0].gender[0]);
+		
+		//체크박스 이름
+		alert("체크박스 이름: "+window.document.forms[0].hobby[0].name);
+		
+		var hb0 = document.fr.hobby[0];	//hobby[0] 첫번쨰 요소
+		
+		//(라디오/체크)타입,값,value
+		alert("체크박스 타입: "+ hb0.type);
+		alert("체크박스 타입: "+ hb0.value);
+		alert("체크박스 체크값: "+ hb0.checked);
+// 		checked속성 -> 버튼의 체크여부에 따라 true / false출력
+
+		hb0.focus();
+		document.fr.gender[0].click();
+		document.fr.hobby[2].click();
+	} //fun1()
+	
+	function fun2() {
+			alert("fun2()실행");
+		//라디오버튼 (성별)이 체크가 안된경우 페이지이동(submit) 안되게 
+		// 라디오버튼체크된경우  submit되게...
+			alert(document.fr.gender.checked);	//undefined  요소중  어느것인가?
+		
+		var gndr1 = document.fr.gender[0].checked;
+		var gndr2 = document.fr.gender[1].checked;
+		
+		if (gndr1 == false && gndr2 == false ) {			
+//		if (gndr1 && gndr2) {   //라디오. 모두체크(&&)된 경우.  라디오는 1개이상 체크되지 않으므로 false 가 된다			
+			alert("성별체크를 안하셨네요~");
+			return;
+		} 
+		//체크완료시
+		document.fr.submit();
+			
+			alert("fun2()실행 끝");
+	}//fun2()
+		
+		function fun3() {
+			alert("fun3()실행시작");
+		
+			//onsubmit이벤트 발생시   (중요!  form태그에  이벤트 삽입.  나중에 submit버튼을 누른다.)
+			//checkbox가 하나이상  선택안된경우 페이지 이동(submit) 안한다
+			//                 선택 된경우 페이지 이동(submit) 한다
+			
+			if (document.fr.hobby[0].checked == false
+				&& document.fr.hobby[1].checked == false
+				&& document.fr.hobby[2].checked== false) {
+				alert("취미 체크를 선택하세요~~");
+				return false;
+			}else{
+				alert("취미 체크하셨네요~~ submit합니다!");
+			}	
+			alert("fun3()실행 끝");
+		}//fun3()		
+		
+	
+	</script>
+</head>
+<body>
+	<h1>WebContent/js3/test4.html</h1>
+	
+	<fieldset>
+	<!--전달되는 데이터(파라미터)
+		* input태그의 name속성은 파라미터명 
+	 -->
+		<form action="a.jsp" method="get" name="fr"  onsubmit="return fun3();">
+			아이디: <input type="text" name="id"><br>
+			<hr>
+			성별: <input type="radio" name="gender" value="남자" >남자 	<!-- 라디오: name이 동일하면 택일만 가능 -->
+				 <input type="radio" name="gender" value="여자">여자 <br>
+				 
+			취미:	 <input type="checkbox" name="hobby" value="독서" >독서
+				 <input type="checkbox" name="hobby" value="캠핑" >캠핑
+				 <input type="checkbox" name="hobby" value="카누" >카누
+			<hr>
+				<input type="submit" value="전달하기">	 
+				<input type="reset" value="초기화 하기">	 
+			<hr>
+			<input type="button" value="속성확인하기" onclick="fun1();">	
+			<input type="button" value="속성체크여부 판단하기" onclick="fun2();">	
+		</form>
+	</fieldset>
+	
+		 
+	 
+</body>
+</html>
