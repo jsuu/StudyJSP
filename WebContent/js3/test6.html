@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 	<script type="text/javascript">
-	// *submit이벤트 발생시 처리
+	// *submit이벤트 발생시 처리.
 	// 1)값입력, 선택여부 판단
 	// 2)아이디의 길이가 5~10자리인지 판단 
 	// 3) 비닐번호/비닐번호확인 이  같은 데이터
@@ -14,22 +14,35 @@
 	
 	function fun1(){
 		var idLen = document.fr.id.value.length;
-		if (idLen=="" || idLen<5 || idLen>10) {
+		if (document.fr.id.value == ""){
+			alert("id가 입력되지 않았습니다");
+			return false;
+		} 		
+		if(idLen <5 || idLen >10) {
 			alert('아이디가 '+idLen+'자리입니다!    5~10자로 넣어주세용');
 			document.fr.id.focus();
 			return false;
-		}		
+		}
+		
 
 		var PW1 = document.fr.pw1.value;
 		var PW2 = document.fr.pw2.value;
-		if (PW1 == "" || PW1 != PW2) {
-			alert("비밀번호가 입력되지얺았거나, 비밀번호가 일치하지 않네요. 다시 넣어주세요");
-			document.fr.pw1.focus();			
+		if (PW1 == ""){
+			alert("비밀번호가 입력되지얺았습니다");
+			return false;
+		} 
+		if(PW1 != PW2) {
+			alert("비밀번호가 일치하지 않네요");
+			document.fr.pw2.focus();			
 			return false;
 		}
 		
-		
-		
+		if (document.fr.name.value == "") {
+			alert(document.fr.name.value);
+			alert("이름이 입력되지얺았습니다");	
+			return false;
+		}
+						
 		 var JU1 = document.fr.ju1.value.length;
 		 var JU2 = document.fr.ju2.value.length;
 		 
@@ -46,7 +59,19 @@
 			alert("성별을 선택해 주세요");
 			return false;
 		}
-		
+		 if (document.fr.hobby[0].checked == false && 
+			 document.fr.hobby[1].checked == false &&
+			 document.fr.hobby[2].checked == false) {
+			alert("취미를ㄴ 선택해 주세요");
+			return false;
+		}
+		 
+		 if (document.fr.subject.options[0].checked == false && 
+			 document.fr.subject.options[1].checked == false &&
+			 document.fr.subject.options[2].checked == false) {
+			alert("좋하는과목을 선택해 주세요");
+			return false;
+		}
 	}
 	
 	
@@ -68,7 +93,7 @@
 		아이디: <input type="text" name="id"><br>
 		비밀번호: <input type="password" name="pw1"><br>
 		비닐번호확인: <input type="password" name="pw2"><br>
-		이름: <input type="text"><br>
+		이름: <input type="text" name="name"><br>
 		주민번호: <input type="text" name="ju1"> - <input type="text" name="ju2"> <br>
 		성별: <input type="radio" name="gender">남 
 			 <input type="radio" name="gender">여 <br>
