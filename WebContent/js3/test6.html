@@ -39,7 +39,6 @@
 		}
 		
 		if (document.fr.name.value == "") {
-			alert(document.fr.name.value);
 			alert("이름이 입력되지얺았습니다");	
 			document.fr.name.focus();
 			return false;
@@ -71,11 +70,12 @@
 		}
 		 
 // 			alert(document.fr.subject.options[0].text);
-		 if (document.fr.subject.options[1].selected == false && 
-			 document.fr.subject.options[2].selected == false &&
-			 document.fr.subject.options[3].selected == false) {
+// 		 if (document.fr.subject.options[1].selected == false && 
+// 			 document.fr.subject.options[2].selected == false &&
+// 			 document.fr.subject.options[3].selected == false) {
+		if (document.fr.subject.options[0].selected) {
 			alert("좋하는과목을 선택해 주세요");
-			document.fr.subject.options[0].selected;
+			document.fr.subject.focus();
 			return false;
 		}
 		 
