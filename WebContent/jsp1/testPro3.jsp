@@ -8,7 +8,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-  <h1>WebContent/jsp1/testPro2.jsp</h1>
+  <h1>WebContent/jsp1/testPro3.jsp</h1>
  
   
   <%
@@ -39,8 +39,7 @@
       %>
 
   
- 과목: <%=subject %>										
-  
+ 과목: <%=subject %>		  
   	 
  
   
