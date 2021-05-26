@@ -20,6 +20,7 @@
 	String pw = request.getParameter("pw"); 
 	%>
 		아이디: <%=id %>
+		비밀번호: <%=pw %>
 	
 	
 	
@@ -35,15 +36,15 @@
 	<h2>페이지이동(+ 데이터)</h2>
 	
 	<h3>1) a태그 이동 (파라미터,session,application 정보사용 가능)</h3>		
-		<a href="scopeProAction.jsp?id=<%=id %>&pw=<%=pw %>">scopeProAction.jsp 페이지이동</a>			
+	<a href="scopeProAction.jsp?id=<%=id %>&pw=<%=pw %>">scopeProAction.jsp 페이지이동</a>
 	
 	<h3>2) Js 사용 이동 (파라미터,session,application 정보사용 가능)</h3>
 		<script type="text/javascript">
-		//	alert("Js사용 페이지이동");		// 한 페이지에 JSP사용 이동이 같이 있다면 우선권에 의해 Js이동은 무시.
+		//	alert("Js사용 페이지이동");		// 한 페이지에 Js이동과 JSP사용 이동과 같이 있다면 우선권에 의해 Js이동은 무시.
 		//	location.href= 'scopeProAction.jsp?id=<%=id%>&pw=<%=pw %>';
 		</script>
 	
-	<h3>3) JSP 사용 이동</h3>
+	<h3>3) JSP 사용 이동(파라미터,session,application 정보 사용 O)</h3>
 		<%
 		//	response.sendRedirect("scopeProAction.jsp?id="+id+"&pw="+pw);
 		%>
@@ -57,9 +58,9 @@
 						화면:	 proAction.jsp
 						
 	 -->
-	  <jsp:forward page='scopeProAction.jsp'>
-		<jsp:param value="0000" name="pw"/>
-	  </jsp:forward>
+<%-- 	  <jsp:forward page='scopeProAction.jsp'> --%>
+<%-- 		<jsp:param value="0000" name="pw"/> --%>
+<%-- 	  </jsp:forward> --%>
 	
 	  <%
 //     RequestDispatcher dis =

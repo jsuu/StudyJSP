@@ -9,13 +9,21 @@
 <body>
 <h1>WebContent/jsp3/sessionMain.jsp</h1>
 <%
-out.print("로그인성공~^^");
 
-String Id = (String)session.getAttribute("id");
-String Pw = (String)session.getAttribute("pw");
+	// 세션 영역객체의 값을 사용해서 로그인여부 체크
+	String Id = (String)session.getAttribute("id");
+	String Pw = (String)session.getAttribute("pw");
+	
+	if(Id ==null){
+		//로그인x
+		response.sendRedirect("sessionLogin.jsp");
+	}
 %>
-			
-			입력아이디: <%=Id %>
+			<h2>메인페이지</h2>
+			입력아이디: <%=Id %>님 안녕하세요? <br>
 			입력비번: <%=Pw %>
+			<hr>
+			<input type="button" value="로그아웃" 
+					onclick="location.href='sessionLogout.jsp'">
 </body>
 </html>

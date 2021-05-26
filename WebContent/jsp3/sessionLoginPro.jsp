@@ -20,17 +20,20 @@
 		if(id.equals(userID)){
 			if(pw.equals(userPW)){
 				out.print("로그인성공~^^");
+				
+				//세션영역에 로그인성공시 입력한 id값 저장.
+				//세션영역에서 항상 확인가능.
+				session.setAttribute("id", id);	//페이지 이동전 속성 저장
+				session.setAttribute("pw", pw);
 				response.sendRedirect("sessionMain.jsp");
 				
 			}else{
-				out.print("비번이 틀렸네요~");				
+				out.print("아이디 같음, 비번이 틀렸네요~");				
 			}			
 		}else{
-				out.print("아이디가 다릅니다~");				
-			}
+				out.print("아이디가 다릅니다(비회원)~");				
+		}
 		//session 생성
-		session.setAttribute("id", id);
-		session.setAttribute("pw", pw);
 		
 	%>
 			

@@ -26,10 +26,10 @@
   %>
   <fieldset>
 	  <form action="scopePro.jsp" method="get">
-	  아이디: <input type="text" name="id">
-	  비밀번호: <input type="password" name="pw">
-	  
-	  <input type="submit" value="입력하기">
+		  아이디: <input type="text" name="id">
+		  비밀번호: <input type="password" name="pw">
+		  
+		  <input type="submit" value="입력하기">
 	  </form>
   </fieldset>
 </body>
