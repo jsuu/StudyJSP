@@ -43,9 +43,9 @@
    //* 객체배열
    //Cookie[] cookies = new Cookie[3];	객체레퍼런스 3개 생성
    
-   //Cookie c = new Cookie();  x3  =>  객체를 3개 만든거  (x 이 의미는 아님.)
+   //Cookie c = new Cookie();  x3 ?  =>  객체를 3개 만든거  (x) 이 의미는 아님.)
    
-   //Cookie c;  x3 				   =>  객체 배열의 생성 == 객체레퍼런스(객체 참조주소) 3개를 생성
+   //Cookie c;  x3 ?    		   =>  객체 배열의 생성 == 객체레퍼런스(객체 참조주소) 3개를 생성 (o)
    //Cookie c1; 
    //Cookie c2; 
    //Cookie c3;
@@ -53,7 +53,7 @@
    //cookie[0] = new Cookie();
    
    //쿠키값 사용
-   Cookie[] cookies = request.getCookies();	//쿠키객체 배열 반환.
+   Cookie[] cookies = request.getCookies();	//서버로부터 add된 쿠키객체 배열 받음.
    
    String cName ="";
    String cValue ="";

@@ -21,8 +21,7 @@
 					// 3)쿠키값을 삭제
 					// 쿠키갓 데이터자체의 사용시간 ->0. (파일삭제 의미x)
 					cookies[i].setMaxAge(0);  
-					
-					// 4)쿠키 삭제정보를 클라이언트로 전달.
+					// 4)cookies[i]인 특정쿠키 삭제정보를 클라이언트로 전달.
 					response.addCookie(cookies[i]);
 					
 				}
