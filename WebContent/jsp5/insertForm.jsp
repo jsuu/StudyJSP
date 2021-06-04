@@ -20,7 +20,7 @@
 	  	
 	  	<input type="submit" value="전달"> 
 	  
-	  </form>
+	  </form> 
 
 </body>
 </html>

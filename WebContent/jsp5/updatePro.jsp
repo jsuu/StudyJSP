@@ -46,7 +46,7 @@
     
     // 4. sql 실행
 	 pstmt.executeUpdate();	 
-		System.out.println(" sql실행 성공!");
+		System.out.println(" 회원정보수정 update성공!");
 	 
 	%>
 </body>

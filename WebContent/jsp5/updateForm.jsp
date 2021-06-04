@@ -22,7 +22,7 @@
 		<input type="submit" value="수정하기">
 	
 	</form>
-	
+	 
 	
 </body>
 </html>

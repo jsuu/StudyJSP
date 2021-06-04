@@ -24,10 +24,10 @@
 		
 			System.out.println("드라이버 로드 성공!");
 		// 2)드라이버를 사용,DB연결
-		Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/jspdb","root","1234");
+		Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/jspdb","root","1234");
 		
 			System.out.println("DB연결 성공!");
-			System.out.println("연결정보: "+conn);
+			System.out.println("연결정보: "+con); 
 	%>
 	
 

@@ -16,11 +16,6 @@
 	<%   
  	request.setCharacterEncoding("utf-8");
 	
-    // 회원의 정보를 출력 (개인 1명 정보 조회)
-    // 본인 DB회원 정보 사용하기
-		String id = "itwill";
-		String pw = "1234";
-		
 	//
  // 디비연결 정보
     final String DRIVER="com.mysql.jdbc.Driver";
@@ -40,7 +35,8 @@
     
     // 3) sql 쿼리 & pstmt 객체 
 //     String sql = "select * from itwill_member where id=? and pass=?";
-    String sql = "select * from itwill_member";
+     String sql = "select * from itwill_member";
+//    String sql = "select * from itwill_member where id !='admin'"; //== id not like
     PreparedStatement pstmt = con.prepareStatement(sql);
     
     // ?
@@ -60,19 +56,29 @@
    // 해당 데이터는 java.sql.ResultSet 타입으로 사용가능하다. 
    
    //5) 데이터처리
-// 	if(rs.next()){  
+  
 	while(rs.next()){  
 		//커서를 다음으로 이동시킬때, 데이터가 있으면 true 없다면(EOF)false
 		
-		out.println("아이디 : "+rs.getString("id")+"<br>");
-    	out.println("비밀번호 : "+rs.getString("pass")+"<br>");
-    	out.println("이메일 : "+rs.getString("email")+"<br>");
+		//admin은 제외하고 출력하는경우.
+		if(rs.getString("id").equals("admin")){
+			//admin관리자 출력x, 그외 모든사람정보 출력
+			continue;	//이하실행문 skip. 다음반복문 수행.
+		}
+		
+// 		out.println("아이디 : "+rs.getString("id")+"<br>");
+//     	out.println("비밀번호 : "+rs.getString("pass")+"<br>");
+//     	out.println("이메일 : "+rs.getString("email")+"<br>");
 		
     	// rs.getXXXX("컬럼명") : select문의 결과중에서 "컬럼명"에 해당하는 값 가져오기
     	//  XXXX 는 DB데이터의 타입에 따라서 변경  
     	// rs.getXXXX(컬럼인덱스번호) :    "    인덱스 번호에 해당하는 값 가져오기
 		 // -> 컬럼의 인덱스 번호는 1번부터 시작 (왼->오)
     	out.println("아이디 : "+rs.getString(1)+"<br>");		//DB에서   String 타입의 id컬럼
+    	out.println("이름 : "+rs.getString(2)+"<br>");		
+    	out.println("성별 : "+rs.getString(3)+"<br>");		
+    	out.println("나이 : "+rs.getString(4)+"<br>");		
+    	out.println("주민번호 : "+rs.getString(5)+"<br>");			
     	out.println("비밀번호 : "+rs.getString(6)+"<br>");	//DB에서   String 타입의 pass컬럼
     	out.println("이메일 : "+rs.getString(7)+"<br>");	
     	out.println("<br>");

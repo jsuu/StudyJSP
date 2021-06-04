@@ -46,7 +46,8 @@
 	
 	 // Statement 객체 : jdbc사용해서 SQL구문을 작성하고, 실행하도록 도와주는 객체 
 	  //Statement stmt = con.createStatement();    values(?,?,?) 는 Statement객체로 사용할 수 없다
-	PreparedStatement pstmt = con.prepareStatement(sql);   // Statement객체에 비해, (sql)파라미터를 가진다. 처리속도 더 빠름. 
+	 // PreparedStatement:  Statement객체에 비해, (sql)파라미터를 가진다. 처리속도 더 빠름.
+	  PreparedStatement pstmt = con.prepareStatement(sql);   
 	
 	
     // ? 값 넣기
