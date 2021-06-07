@@ -44,8 +44,9 @@
     if(rs.next()){
         if(pass.equals(rs.getString("pass"))){
         // 로그인성공
- 		//id 정보를 세션에 저장, 로그인 상태를 유지 (session)
+ 		//id 정보를 세션에 저장, 로그인 상태를 유지 (session: server가 켜있는동안)
  		session.setAttribute("id", id);
+ 		session.setAttribute("pass", pass);
         
         // => main.jsp 페이지로 이동,        		
         response.sendRedirect("main.jsp");
@@ -62,11 +63,11 @@
 	 	%>
     	<script type="text/javascript">
     	var register= confirm("비회원입니다. 회원가입 하시겠습니까?");
-    	if(!register){
-    		history.back();        		
-    		
-    	}else{
+    	if(register){
     		location.href="insertForm.jsp";
+
+    	}else{
+    		history.back();        		
     	}
     	</script>
     	<%
