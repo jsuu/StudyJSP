@@ -143,6 +143,32 @@
    
    int i = (int) L;  명시적형변환
    
+   -------------------
+  --- 게시판 
+   글쓰기
+   글목록 + 페이징처리
+   글본문 읽기
+   수정
+   삭제
+   답글
+   파일업로드
+     
+   
+   
+  		<script type="text/javascript">		
+			if(JU2 ==1){	
+		</script>		
+		<input type="radio" name="gender" value="남">남 
+		<script type="text/javascript">
+			}
+		</script>
+		<script type="text/javascript">		
+			if(JU2 ==2){	
+		</script>	
+			 <input type="radio" name="gender" value="여">여 <br>
+		<script type="text/javascript">
+			}
+		</script>	 
   	
  
   

@@ -45,8 +45,9 @@
         if(pass.equals(rs.getString("pass"))){
         // 로그인성공
  		//id 정보를 세션에 저장, 로그인 상태를 유지 (session: server가 켜있는동안)
- 		session.setAttribute("id", id);
- 		session.setAttribute("pass", pass);
+ 		//업캐스팅.  id: String -> Object
+ 		session.setAttribute("id", id);	
+//  		session.setAttribute("pass", pass);
         
         // => main.jsp 페이지로 이동,        		
         response.sendRedirect("main.jsp");

@@ -11,21 +11,24 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h1>WebContent/jsp5/delete.jsp</h1>
-		<!--
-			deleteForm.jsp 삭제될정보입력
-			deletePro.jsp  전달받은  정보를 사용 db에 회원삭제.
-	  -->
-  <%
-	  String id = (String)session.getAttribute("id");
-	  String pass = (String)session.getAttribute("pass");
-	    System.out.println("pass: "+pass);
-	  
-	  if(id == null){
-		  response.sendRedirect("loginForm.jsp");
-	  }
-	  
-  
+	<h1>WebContent/jsp5/deletePro.jsp</h1>
+	<%
+		//로그인 세션제어
+	 	String id = (String)session.getAttribute("id");
+		/* 참조형은 형변환이 안되지만, 상속의 경우는 가능.  */
+	 
+		if(id ==null){
+			response.sendRedirect("loginForm.jsp");
+		}	
+		//한글처리
+		request.setCharacterEncoding("utf-8");
+	
+		//전달된 파라미터를 저장(id, pass)
+		 id = request.getParameter("id");
+String pass = request.getParameter("pass");
+
+		//DB이동후 데이터삭제.
+		
 		// 1. 드라이버 로드
 	    final String DRIVER = "com.mysql.jdbc.Driver";
 	    final String DBURL = "jdbc:mysql://localhost:3306/jspdb";
@@ -41,7 +44,8 @@
 	    System.out.println("DB연결 성공! con: "+con);
 	    
 	    
-		// 3. sql(insert) & pstmt 객체 
+		// 3. sql(insert) & pstmt 객체 .
+		//id(pk), pass(nn) 가 조회된다 => 회원정보 가 있다.
 		String sql = "select pass from itwill_member where id=?";
 		PreparedStatement pstmt = con.prepareStatement(sql);
 		pstmt.setString(1, id);
@@ -54,31 +58,32 @@
 		//  본인일때만 삭제 (pass 데이터로) ==> main.jsp 페이지
 		//  회원 X, 비밀번호 오류 => 삭제X, 뒤로가기
 		
-		//pass가 조회된다 => 회원정보 가 있다.
-		if(rs.next()){	
-			
+		if(rs.next()){
 			if(pass.equals(rs.getString("pass"))){
+			
+			// 6. sql 작성 & pstmt 객체 생성
+			sql = "delete from itwill_member where id=?";	
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, id);
+			
+			 // 4 sql 실행
+			 pstmt.executeUpdate();
+			 // session정보 삭제 (로그인정보). 아래 main으로 가면 id가 보이므로.
+			 session.invalidate();
 				
-				// 6. sql 작성 & pstmt 객체 생성
-				sql = "delete from itwill_member where id=?";
-				pstmt = con.prepareStatement(sql);
-				pstmt.setString(1, id);
-				
-				 // 4 sql 실행
-				pstmt.executeUpdate();
 			%>
 			<script type="text/javascript">
 				alert("회원정보 삭제완료!");
-				location.href="loginForm.jsp";
+				location.href="main.jsp";
 			</script>
-			<%	 
+			<%		
 			}else{
 			%>
 				<script type="text/javascript">
 					alert("비밀번호 오류!  삭제불가!");
 				</script>
 			<%		
-			}			
+			}
 			
 		}else{
 			//비회원
@@ -89,6 +94,8 @@
 			</script>
 		<%
 		}		
-	  	%>
-</body>	  
+	  	%>			
+
+	
+</body>
 </html>
