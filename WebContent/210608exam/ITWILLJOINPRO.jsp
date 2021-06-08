@@ -29,7 +29,13 @@ page language="java" contentType="text/html; charset=UTF-8"
 
 	String gender = request.getParameter("gender");
 	
-	String hobby = request.getParameter("hobby");
+	String[] hobbyArr = request.getParameterValues("hobby");
+	String hobby = "";
+	if(hobbyArr != null){
+		for(int i=0;i<hobbyArr.length;i++){
+			hobby += hobbyArr[i] + " ";
+		}
+	}
 	
 	String subject = request.getParameter("subject");
 	String message = request.getParameter("message");

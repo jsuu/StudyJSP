@@ -82,13 +82,17 @@
 	
 	function fun2(){
 		var ju2 = document.fr.ju2.value.charAt(0);
-
+			alert(ju2);
+			
 		if (ju2 == 1 || ju2 ==3) {
-			document.fr.gender[0].click();
+			document.fr.gender[0].checked = true;
+// 			document.fr.gender.value = "남";
 		}
 		
 		if (ju2 == 2 || ju2 ==4) {
-			document.fr.gender[1].click();
+			document.fr.gender[1].checked = true;
+// 			document.fr.gender[1].click();
+			
 		}
 	}
 	
@@ -114,7 +118,7 @@
 		이름: <input type="text" name="name"><br>
 		주민번호: <input type="text" name="ju1"> - <input type="text" name="ju2" onblur="fun2();"> <br>
 		성별: 
-		<input type="radio" name="gender" value="남">남 
+			 <input type="radio" name="gender" value="남">남 
 			 <input type="radio" name="gender" value="여">여 <br>
 		취미: <input type="checkbox" name="hobby" value="여행">여행
 			 <input type="checkbox" name="hobby" value="독서">독서 
