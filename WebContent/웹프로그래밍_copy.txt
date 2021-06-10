@@ -152,27 +152,37 @@
    삭제
    답글
    파일업로드
-     
-   
-   
-  		<script type="text/javascript">		
-			if(JU2 ==1){	
-		</script>		
-		<input type="radio" name="gender" value="남">남 
-		<script type="text/javascript">
-			}
-		</script>
-		<script type="text/javascript">		
-			if(JU2 ==2){	
-		</script>	
-			 <input type="radio" name="gender" value="여">여 <br>
-		<script type="text/javascript">
-			}
-		</script>	 
-  	
+
+------------------------------
+*자바접근지정자
+
+			private    	(default)  	   protect 	     public     
+---------------------------------------------------------------
+ 자신클래스 내  	    o			o			 o				o
+ 같은 패키지		    x			o			 o				o
+ 하위 클래스			x			x			 o				o
+다른 패키지			x			x			 x				o
+ 						 		   
+ 						 		   
+ 데이터 -> 처리 -> 데이터
+ 	리터럴  >> 변수 >> 배열  >> 메서드  >> 클래스(객체) >> 라이브러리(API) >>framework
+ ------------------------------------------------------------
  
+   * 자바빈(JAVABEAN) : 특정한 기능을 가진 객체(컴포넌트)
+     => 자바빈 규칙으로 만들어진 클래스
+     
+     설계 규칙
+   1) 기본패키지를 제외한 다른 특정패키지에 생성해야함.
+   2) 기본 생성자가 있어야함
+   3) 멤버변수의 접근지정자는 private (캡슐화)
+   4) 멤버변수에 접근 하기위한 get/set메서드 생성
+   5) get/set메서드는 반드시 public 접근지정자 사용
+  *6) 객체 직렬화 되어있어야함
   
-  
-  
+	 * 데이터를 저장하는 형태를 참고하여 자바빈 객체 생성
+	=> DB-테이블을 참고해서 자바빈객체 생성
+ 	
+ 	
+ 							 		   
   
   
