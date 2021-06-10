@@ -85,36 +85,17 @@
 			alert(ju2);
 			
 		if (ju2 == 1 || ju2 ==3) {
-<<<<<<< HEAD
-<<<<<<< HEAD
+
 // 			document.fr.gender.value = "남";
 // 			document.fr.gender[0].click();
 			document.fr.gender[0].checked = true; 
-=======
-			document.fr.gender[0].checked = true;
-// 			document.fr.gender.value = "남";
->>>>>>> refs/remotes/origin/master
-=======
-			document.fr.gender[0].checked = true;
-// 			document.fr.gender.value = "남";
->>>>>>> refs/remotes/origin/master
 		}
 		
 		if (ju2 == 2 || ju2 ==4) {
-<<<<<<< HEAD
-<<<<<<< HEAD
+
 // 			document.fr.gender[1].click();
 			document.fr.gender[1].checked = true; 
-=======
-			document.fr.gender[1].checked = true;
-// 			document.fr.gender[1].click();
-			
->>>>>>> refs/remotes/origin/master
-=======
-			document.fr.gender[1].checked = true;
-// 			document.fr.gender[1].click();
-			
->>>>>>> refs/remotes/origin/master
+
 		}
 	}
 	

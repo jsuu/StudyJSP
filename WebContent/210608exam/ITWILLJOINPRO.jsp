@@ -30,20 +30,13 @@ page language="java" contentType="text/html; charset=UTF-8"
 	String gender = request.getParameter("gender");
 	
 	String[] hobbyArr = request.getParameterValues("hobby");
-<<<<<<< HEAD
-	
-	String hobby= "";
-	
-	for(int i=0;i<hobbyArr.length;i++){
-		hobby += hobbyArr[i] + " ";
-		
-=======
+
 	String hobby = "";
 	if(hobbyArr != null){
 		for(int i=0;i<hobbyArr.length;i++){
 			hobby += hobbyArr[i] + " ";
 		}
->>>>>>> refs/remotes/origin/master
+
 	}
 	
 	String subject = request.getParameter("subject");
