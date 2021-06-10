@@ -26,23 +26,22 @@
 		JavaBean1 jb1 = new JavaBean1();
 		
 // 		System.out.println("jb1.toString()= "+jb1.toString());
- 		System.out.println("jb1 = "+jb1);
+ 		System.out.println("jb1 = "+jb1);	//객체만 생성했고 set한게 아무것도 없다.
 
 		jb1.setId(request.getParameter("id"));
- 		System.out.println(jb1);
+ 		System.out.println("set메서드: "+jb1);
 	
 	%>
 	<!-- 액션태그 사용. javaBean 객체사용 -->
 	
 	<!--  javaBean 객체생성  >>=같은의미.
 		    JavaBean1 jb2 = new JavaBean1();  -->
-		    
-	<jsp:useBean id="jb2" class="com.itwillbs.beantest.JavaBean1"></jsp:useBean>	<!-- id 는 참조변수명 -->
+	<jsp:useBean id="jb2" class="com.itwillbs.beantest.JavaBean1"></jsp:useBean>	<!-- id 는 객체참조변수명 -->
 	
 	
-	<!-- property: JavaBean1클래스의 필드명, name: 참조변수명,   param:파라미터,  
-			jb1.setId(request.getParameter("id")); -->
-	<jsp:setProperty property="id" name="jb2" param="id"/>  
+	<!-- setProperty: JavaBean클래스의 필드명, name: 참조변수명,   param:파라미터	
+			jb2.setId(request.getParameter("id"));						-->
+	<jsp:setProperty property="id" name="jb2" param="id"/>
 	
 	<%
 	System.out.println("액션태그: "+jb2);
