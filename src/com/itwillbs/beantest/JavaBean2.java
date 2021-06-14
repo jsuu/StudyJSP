@@ -1,9 +1,13 @@
 package com.itwillbs.beantest;
 
-public class JavaBean1 {
+public class JavaBean2 {
 	
 	//DB테이블 컬럼명 == 자바빈 변수명 == 파라미터 이름.
 	private String id;
+	private String pass;
+	private int age;
+	private String tel;
+	
 
 
 	// 기본생성자 public JavaBean1() {}
@@ -11,6 +15,30 @@ public class JavaBean1 {
 	// set/get()생성
 	// alt + shift + s +r
 	
+	public String getPass() {
+		return pass;
+	}
+
+	public void setPass(String pass) {
+		this.pass = pass;
+	}
+
+	public int getAge() {
+		return age;
+	}
+
+	public void setAge(int age) {
+		this.age = age;
+	}
+
+	public String getTel() {
+		return tel;
+	}
+
+	public void setTel(String tel) {
+		this.tel = tel;
+	}
+
 	public String getId() {
 		return id;
 	}
@@ -19,10 +47,9 @@ public class JavaBean1 {
 		this.id = id;
 	}
 
-	// alt + shift + s + s  자바빈객체 내용 확인!
 	@Override
 	public String toString() {
-		return "JavaBean1 [id=" + id + "]";
+		return "JavaBean2 [id=" + id + ", pass=" + pass + ", age=" + age + ", tel=" + tel + "]";
 	}
 
 

@@ -1,0 +1,14 @@
+ CREATE TABLE `jspdb`.`itwill_board` (
+  `num` INT NOT NULL,
+  `name` VARCHAR(45) NULL,
+  `pass` VARCHAR(45) NULL,
+  `subject` VARCHAR(100) NULL,
+  `content` VARCHAR(2000) NULL,
+  `readcount` INT NULL,
+  `re_ref` INT NULL,
+  `re_lev` INT NULL,
+  `re_seq` INT NULL,
+  `date` DATE NULL,
+  `ip` VARCHAR(45) NULL,
+  `file` VARCHAR(1000) NULL,
+  PRIMARY KEY (`num`));
