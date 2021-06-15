@@ -23,7 +23,8 @@
 		<%=bb %>
 		
 		<%
-		//bb객체에 ip주소 추가  *localhost ip=0:0:0:0:0:0:0:1
+		//bb객체에 ip주소 추가 (파라미터로 전달되지 않으므로..)
+		//localhost ip=0:0:0:0:0:0:0:1
 		bb.setIp(request.getRemoteAddr());
 		%>
 		<hr>
@@ -36,6 +37,7 @@
 		
 		//글쓰기 매서드 호출
 		bDAO.insertBoard(bb);
+// 		bDAO.getCon(); //(사용하면 안됨)  DB연결정보 노출 
 		
 		//글쓰기 이후 글 목록 페이지 이동(list.jsp)
 		response.sendRedirect("list.jsp");
