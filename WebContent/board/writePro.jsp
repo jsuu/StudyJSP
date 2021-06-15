@@ -1,3 +1,5 @@
+<%@page import="com.itwillbs.board.BoardBean"%>
+<%@page import="java.util.ArrayList"%>
 <%@page import="com.itwillbs.board.BoardDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
@@ -38,6 +40,9 @@
 		//글쓰기 매서드 호출
 		bDAO.insertBoard(bb);
 // 		bDAO.getCon(); //(사용하면 안됨)  DB연결정보 노출 
+
+
+		
 		
 		//글쓰기 이후 글 목록 페이지 이동(list.jsp)
 		response.sendRedirect("list.jsp");

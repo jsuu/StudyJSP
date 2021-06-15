@@ -193,7 +193,14 @@ public class BoardDAO {
 			while(rs.next()){
 				// 글1개 정보저장
 				BoardBean bb = new BoardBean();
+				
+				bb.setNum(rs.getInt("num"));
+				bb.setName(rs.getString("name"));
+				bb.setSubject(rs.getString("subject"));
 				bb.setContent(rs.getString("content"));
+				bb.setReadcount(rs.getInt("readcount"));
+				bb.setDate(rs.getDate("date"));
+				bb.setIp(rs.getString("ip"));
 				
 				//글정보를 배열에 1칸저장
 				boardList.add(bb);
