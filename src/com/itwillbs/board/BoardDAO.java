@@ -1,8 +1,8 @@
 package com.itwillbs.board;
 
-import java.security.GeneralSecurityException;
+//import java.security.GeneralSecurityException;
 import java.sql.Connection;
-import java.sql.DriverManager;
+//import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -10,15 +10,15 @@ import java.util.ArrayList;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
-import javax.naming.NamingException;
+//import javax.naming.NamingException;
 import javax.sql.DataSource;
 
 public class BoardDAO {
 	//Data Access Object => itwill_board 테이블 정보 처리객체.
 	
-	Connection con;
-	PreparedStatement pstmt;
-	ResultSet rs;
+	Connection con = null;
+	PreparedStatement pstmt = null;
+	ResultSet rs = null;
 	String sql = "";
 	
 		// DB연결 메서드 - 커넥션풀 사용
@@ -134,7 +134,7 @@ public class BoardDAO {
 			e.printStackTrace();
 			System.out.println("DAO : dB연결 실패");
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
+			
 			e.printStackTrace();
 			
 		}
@@ -166,7 +166,7 @@ public class BoardDAO {
 		System.out.println("DAO : 글갯수확인 "+cnt);
 			
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
+			
 			e.printStackTrace();
 		}finally {
 			closeDB();
@@ -177,8 +177,7 @@ public class BoardDAO {
 	
 	//getBoardList()
 	public ArrayList getBoardList(){
-		//ArrayList 가변길이 배열(자동으로 배열의 크기를 지정)
-		
+		//ArrayList 가변길이 배열(자동으로 배열의 크기를 지정)		
 		ArrayList boardList = new ArrayList();
 		//1.2 DB연결(CP)
 			try {
@@ -191,32 +190,88 @@ public class BoardDAO {
 			rs = pstmt.executeQuery();
 			
 			while(rs.next()){
-				// 글1개 정보저장
+				// 글1개 정보저장 (rs의 한행)
 				BoardBean bb = new BoardBean();
 				
 				bb.setNum(rs.getInt("num"));
 				bb.setName(rs.getString("name"));
+				bb.setPass(rs.getString("pass"));
 				bb.setSubject(rs.getString("subject"));
 				bb.setContent(rs.getString("content"));
 				bb.setReadcount(rs.getInt("readcount"));
+				bb.setRe_ref(rs.getInt("re_ref"));
+				bb.setRe_lev(rs.getInt("re_lev"));
+				bb.setRe_seq(rs.getInt("re_seq"));
 				bb.setDate(rs.getDate("date"));
 				bb.setIp(rs.getString("ip"));
+				bb.setFile(rs.getString("file"));
 				
 				//글정보를 배열에 1칸저장
-				boardList.add(bb);
-			}
-			} catch (Exception e) {
-				// TODO Auto-generated catch block
+				boardList.add(bb);	// Object에 BoardBean을add (upcast')
+			}//whiel
+			System.out.println("DAO : 글목록 저장완료 ");
+			
+			} catch (Exception e) {				
 				e.printStackTrace();
+			}finally {
+				closeDB();
 			}
 		return boardList;
 		
 	}
 	//getBoardList()
 	
+		
+	//getBoardList(StartRow, pageSize)   	위의 getBoardList()오버로딩
+		public ArrayList getBoardList(int startRow,int pageSize){
+			
+			ArrayList boardList = new ArrayList();
+			// 1.2 디비연결
+			try {
+				con = getCon();				
+			//3.  sql(select) & pstmt 객체
+				//  re_ref 내림차순 정렬, re_seq 오름차순
+				//limit 시작행-1,페이지당글수 => 원하는갯수만큼 잘라서 처리.
+			sql = "select * from itwill_board order by re_ref desc, re_seq asc limit ?,?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, startRow-1);	
+			pstmt.setInt(2, pageSize);	
+			
+			// 4. sql 실행
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()){
+				// 글1개 정보저장 (rs의 한행)
+				BoardBean bb = new BoardBean();
+				
+				bb.setNum(rs.getInt("num"));
+				bb.setName(rs.getString("name"));
+				bb.setPass(rs.getString("pass"));
+				bb.setSubject(rs.getString("subject"));
+				bb.setContent(rs.getString("content"));
+				bb.setReadcount(rs.getInt("readcount"));
+				bb.setRe_ref(rs.getInt("re_ref"));
+				bb.setRe_lev(rs.getInt("re_lev"));
+				bb.setRe_seq(rs.getInt("re_seq"));
+				bb.setDate(rs.getDate("date"));
+				bb.setIp(rs.getString("ip"));
+				bb.setFile(rs.getString("file"));
+				
+				//글정보를 배열에 1칸저장
+				boardList.add(bb);	// Object에 BoardBean을add (upcast')
+			}//while
+			System.out.println("DAO :게시판 글 저장완료(페이징처리)");
+			
+			} catch (Exception e) {				
+				e.printStackTrace();
+			}finally {
+				closeDB();
+			}
 	
-	
-	
+			// 5 데이터 처리			 
+			return boardList;
+			
+		}//getBoardList(StartRow, pageSize)
 	
 	
 }

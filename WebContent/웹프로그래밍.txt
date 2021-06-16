@@ -47,16 +47,252 @@
  
  - 정적데이터 : 이미지, HTML,CSS,Js(JavaScript) 
  
- - 동적 데이터 : 변화가 있는 데이터(DB데이터) 
+ - 동적 데이터 : 변화가 있는 데이터(DB데이터)
             
             
             
             
  ========================================================
  
-            
+ * 데이터 전송 방식
+ 1) GET방식 / get 메서드
+  -> 데이터를 전달할때 파라미터를 사용해서 데이터 전달
+          해당정보를 URL의 정보에 붙여서 전달방식
+         데이터의 길이가 256byte를 넘을수 없음
+     Body영역이 필요없음
+         빠른 데이터 전송 가능
+         보안에 취약하다(주소줄에 파라미터가 표현되기때문)
+   - 정보입력 페이지,정보출력 페이지 
+         
+    EX)
+    www.naver.com?id=itwill & password=1234    
+ 
+ 2) POST방식 / post 메서드
+  -> 데이터를 전달할때 파라미터를 사용해서 데이터 전달
+     해당정보를  본문 body에 붙여서(담아서) 전달방식
+     데이터 길이 제약 없음 (파일업로드)
+     느린 데이터 전송방식 (상대적으로 느림)
+     보안에 우수하다 (주소줄에 파라미터가 표현X)
+   - 정보처리 페이지
+    EX)
+    www.naver.com   
+ 
+     
+     
+* JSP 구성요소
+ 1) JSP지시어(Directive) : jsp 페이지가 실행될때 필요한 정보 지정
+                    필요한 정보를 웹컨테이너(tomcat)에게 알려서 처리하는 지시하는 부분 
+ <%@ page ~  %> : 페이지의 설정 p150~
+ <%@ include ~ %> : 특정파일,데이터를 페이지안에 추가하는 설정p157~
+ <%@ taglib ~ %>   
+ 
+ 2) JSP 선언문(Declaration) : 전역변수,메서드 선언하는 영역
+ 
+ <%! 
+   String name ="홍길동";
+   public void method(){
+   
+   }   
+ %>
+  
+ 3) 스크립틀릿 : jsp 코드를 실행하는 영역 (지역변수,메서드 호출)
+ 
+ <%
+    jsp/java 코드 
+ %>
+ 
+ 4) 표현식 : html 화면에 java코드의 결과를 출력
+ 
+ <%=변수 %>
+ <%=수식 계산 %>
+ <%=리턴값이 있는 메서드호출 %>
+         
+         
+         
+         
+  * include (JSP)
+  
+  1) 액션태그 include  <jsp:include ~>
+  => jsp 페이지를 java 파일로 변경후(컴파일) 파일을 추가
+    (jsp 페이지를 서블릿파일로 컴파일 처리후 파일을 추가)
+    => 페이지 추가 
+  
+  2) 디렉티브 include  <%@ include ~ %>
+  => jsp/page가 컴파일 되기전에 소스코드를 include후 컴파일 
+   => 페이지에 공통적으로 사용되어야 하는 경우
+   
+   * bit : 2진수 0 / 1 데이터를 저장할 수 있는 최소 공간크기 
+     byte : bit데이터가 8개 모여있는 공간
+     
+     1KB : 1024byte (2^10)
+     1MB : 1024 KB
+     1GB
+     1TB
+     
+     => 5GB <=> 5 * 1024 * 1024 * 1024  byte
+     
+     
+   
+   * 기본형 데이터타입 (8개)
+   boolean - 논리형 - 1byte(8bit)
+   char - 문자형 - 2byte
+   byte - 정수형 - 1byte
+   short - 정수형 - 2byte
+   int - 정수형 - 4byte
+   long - 정수형 - 8byte
+   float - 실수형 - 4byte
+   double - 실수형 - 8byte
+   
+   
+   * 자바 기본형 타입의 형변환
+   1) 묵시적 형변환(자동형변환) : 데이터타입의 메모리 크기가 작은곳에서
+                  큰곳으로 저장될때 발생하는 형변환
+     => 컴파일러가 자동으로 형변환             
+   int i = 100;
+   long L = i;
+   
+   2) 명시적 형변환(강제형변환) : 데이터타입의 메모리가 큰곳에서 작은곳으로
+             저장될때 발생하는 형변환 
+      => 컴파일러가 자동으로 형변환 X (메모리 크기때문에 문제발생 가능성이 있기때문)
+      => * 에러가 발생한다라는것을 개발자가 인지한다. 그래도 해당타입으로 사용하겠다.
+             
+   long L = 100L;
+   int i = L;   => 에러발생
+   
+   int i = (int) L;  명시적 형변환
+   
+   
+   클래스   -> (메모리에 올리기) ->  객체 (인스턴스)
+             new
+                      인스턴스화
+   붕어빵틀  -> (가열) -> 붕어빵
+   
+   
+ -  게시판 (CRUD)
+  - 글쓰기
+  - 글목록 + 페이징처리
+  - 글 본문 일기
+  - 글 내용 수정
+  - 글 삭제
+  - 답글 
+  - 파일 업로드
+ 
+ 
+ ---------------------------------------------------
+ 
+ * 자바 접근지정자
+ 
+  			private		기본접근지정자(생략)		protected	public 
+  
+   자신의 클래스      O				O				 	O			O
+   같은 패키지	  X				O					O			O 
+   하위 클래스	  X				X					O			O
+   다른 패키지	  X				X					X			O
+   
+ * 
+      데이터 -> 처리 -> 데이터
+      
+   리터럴  >> 변수 >> 배열 >> 메서드 >> 클래스(객체) >> 라이브러리(API) >> 프레임워크       
+   
+  
+  * 자바빈(JAVABEAN) : 특정한 기능을 가진 객체(컴포넌트)
+     => 자바빈 규칙으로 만들어진 클래스
+     
+     설계 규칙
+   1) 기본패키지를 제외한 다른 특정패키지에 생성해야함.
+   2) 기본 생성자가 있어야함
+   3) 멤버변수의 접근지정자는 private (캡슐화)
+   4) 멤버변수에 접근 하기위한 get/set메서드 생성
+   5) get/set메서드는 반드시 public 접근지정자 사용
+   *6) 객체 직렬화 되어있어야함
+   
+   * 데이터를 저장하는 형태를 참고하여 자바빈 객체 생성
+    => DB-테이블을 참고해서 자바빈객체 생성
+   
+   
+   
+ 
+ 
+ 
+ 
+ CREATE TABLE `jspdb`.`itwill_board` (
+  `num` INT NOT NULL,
+  `name` VARCHAR(45) NULL,
+  `pass` VARCHAR(45) NULL,
+  `subject` VARCHAR(100) NULL,
+  `content` VARCHAR(2000) NULL,
+  `readcount` INT NULL,
+  `re_ref` INT NULL,
+  `re_lev` INT NULL,
+  `re_seq` INT NULL,
+  `date` DATE NULL,
+  `ip` VARCHAR(45) NULL,
+  `file` VARCHAR(1000) NULL,
+  PRIMARY KEY (`num`));
+ 
+ 
+ p443 커넥션 풀(Connection Pool)
+ 
+ http://commons.apache.org/
+ 
+ 
+ * collections
+ https://commons.apache.org/proper/commons-collections/download_collections.cgi
+ 
+ commons-collections4-4.4-bin.zip 다운로드
+ 
+ * DBCP
+ http://commons.apache.org/proper/commons-dbcp/download_dbcp.cgi
+ commons-dbcp2-2.8.0-bin.zip 다운로드
+ 
+ 
+ * pool
+ https://commons.apache.org/proper/commons-pool/download_pool.cgi
+ commons-pool2-2.10.0-bin.zip 다운로드
+ 
+ 
+ 
+ <Context> : 해당프로젝트
+   <Resource 
+     name="리소스 호출명" 
+     auth="인증-컨테이너(톰켓)" 
+     type="데이터 리턴 형태-DataSource" 
+     driverClassName="디비 드라이버 이름" 
+     url="디비 접속 주소" 
+     username="디비 접속 아이디" 
+     password="디비 접속 비밀번호"
+     maxActive="디비 연결정보(connection) 최대 개수"
+     maxIdle=" 서비스중인 연결정보를 제외하고 여유로 남겨둘 개수 "  
+   />
+</Context>
 
 
+
+
+* 예외처리 : 예외 객체를 처리 
+
+  try{
+        예외가 발생가능한 코드 (DB관련)
+  } catch(Exception e){
+        예외 처리(출력)
+  } finally {
+         예외가 발생 유무와 상관없이 반드시 실행코드
+  }
+  
+  
+  
+
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+   
 
 
 
