@@ -1,5 +1,6 @@
 package com.itwillbs.board;
 
+import java.security.GeneralSecurityException;
 //import java.security.GeneralSecurityException;
 import java.sql.Connection;
 //import java.sql.DriverManager;
@@ -272,6 +273,122 @@ public class BoardDAO {
 			return boardList;
 			
 		}//getBoardList(StartRow, pageSize)
-	
-	
-}
+		
+		//조회수 증가.  updateReadcount(num 글번호)
+		public void updateReadcount(int num){
+		
+			try {
+			
+				// 1.2 디비연결
+				con = getCon();
+				
+				// 3. sql (기존의 조회수 + 1) & pstmt 객체			
+				sql = "update itwill_board set readcount=readcount+1 where num=?";
+				pstmt = con.prepareStatement(sql);
+				pstmt.setInt(1, num);
+				
+				// 4. sql 실행
+				pstmt.executeUpdate();
+				System.out.println("DAO :글조회수 1증가! 완료");
+				
+			} catch (Exception e) {
+				e.printStackTrace();
+			}finally {
+				closeDB();
+			}
+		}//글내용 가져오기. getBoard(num)  해당행 한줄의 정보를 리턴
+		public BoardBean getBoard(int num){
+			BoardBean bb= null;  //객체생성아직 안되었다. 레퍼런스만 만듦. 메모리절약 
+			// 1.2 디비연결
+				try {
+					con = getCon();
+					// 3. sql (num에 해당하는 모든 글의 정보가져오기) & pstmt객체
+					sql = "select * from itwill_board where num=?";
+					pstmt = con.prepareStatement(sql);
+					pstmt.setInt(1, num);
+
+					// 4. sql 실행
+					rs = pstmt.executeQuery();
+					
+					//5.데이터처리
+					if (rs.next()) {
+						bb = new BoardBean();
+						bb.setContent(rs.getString("content"));
+						bb.setDate(rs.getDate("date"));
+						bb.setFile(rs.getString("file"));
+						bb.setIp(rs.getString("ip"));
+						bb.setName(rs.getString("name"));
+						bb.setNum(rs.getInt("num"));
+						bb.setPass(rs.getString("pass"));
+						bb.setRe_lev(rs.getInt("re_lev"));
+						bb.setRe_ref(rs.getInt("re_ref"));
+						bb.setRe_seq(rs.getInt("re_seq"));
+						bb.setReadcount(rs.getInt("readcount"));
+						bb.setSubject(rs.getString("subject"));
+					}
+					System.out.println("DAO :글정보 저장 완료");
+					
+				} catch (Exception e) {
+					e.printStackTrace();
+				}finally {
+					closeDB();	//자원반납해야  속도가 점점 늦어지는걸 방지
+				}
+			return bb;	//rs.next() 없다면 null리턴
+		}		//getBoard(num)
+		
+		
+		//	DB정보수정   updateBoard(bb)
+		public int updateBoard(BoardBean bb){
+			int check = -1;
+			
+			try {
+				//1.2 디비연결
+				con = getCon();	
+				
+				//3. sql 작성 (글이 있는지 (pass로)판단 후 글 수정) & pstmt 객체
+				sql = "select pass from itwill_board where num=?";
+				pstmt = con.prepareStatement(sql);
+				pstmt.setInt(1, bb.getNum());
+				
+				//4. sql 실행
+				rs= pstmt.executeQuery();
+								
+				//5. 데이터처리 
+				if(rs.next()){ //데이터 있을때
+					// 글수정폼에서 입력받은 pass와 rs의 pass가 같은경우
+					if(bb.getPass().equals(rs.getString("pass"))){
+						// 3. sql (데이터 수정) & pstmt 객체
+						sql = "update itwill_board set name=?,subject=?,content=? where num=?";
+						pstmt = con.prepareStatement(sql);
+						
+						pstmt.setString(1, bb.getName());
+						pstmt.setString(2, bb.getSubject());
+						pstmt.setString(3, bb.getContent());
+						pstmt.setInt(4, bb.getNum());
+						
+						pstmt.executeUpdate();
+						check = 1;
+						System.out.println("DAO :회원정보 수정완료");
+						
+					}else{ //글은 있지만 비번오류!
+						check = 0;
+					}
+							
+					// 4. sql 실행
+					
+				}else{
+					//데이터 없는경우(글정보    rs.next() 없다)
+					check = -1;
+				}
+				
+			} catch (Exception e) {
+				e.printStackTrace();
+			}finally {
+				closeDB();
+			}			
+			
+			return check;
+		
+		}	//	DB정보수정   updateBoard(bb)
+		
+}//class

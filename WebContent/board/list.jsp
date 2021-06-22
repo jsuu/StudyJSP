@@ -77,7 +77,9 @@
 	%>
 		<tr>
 			<td><%=bBean.getNum() %></td>
-			<td><%=bBean.getSubject() %></td>		
+		<td>	<!-- 글번호(num)클릭시 글번호오 현재페이지정보(나중 돌아왔을때 원래페이지로 오기위해) 파라미터로 -->
+				<a href='content.jsp?num=<%=bBean.getNum()%>&pageNum=<%=pageNum%>'><%=bBean.getSubject() %></a>
+			</td>		
 			<td><%=bBean.getName() %></td>
 			<td><%=bBean.getDate() %></td>					
 			<td><%=bBean.getReadcount() %></td>	
