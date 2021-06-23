@@ -1,5 +1,6 @@
 package com.itwillbs.board;
 
+import java.io.ObjectInputStream.GetField;
 import java.security.GeneralSecurityException;
 //import java.security.GeneralSecurityException;
 import java.sql.Connection;
@@ -368,7 +369,7 @@ public class BoardDAO {
 						
 						pstmt.executeUpdate();
 						check = 1;
-						System.out.println("DAO :회원정보 수정완료");
+						System.out.println("DAO :글정보 수정완료");
 						
 					}else{ //글은 있지만 비번오류!
 						check = 0;
@@ -390,5 +391,115 @@ public class BoardDAO {
 			return check;
 		
 		}	//	DB정보수정   updateBoard(bb)
+		
+		
+		//deleteBoard()
+		public int deleteBoard(int num, String pass){
+			int check = -1;
+			
+		try {
+			//1.2 디비연결
+			con = getCon();
+			
+			//3. sql 작성 (글이 있는지 (pass로)판단 후 글 수정) & pstmt 객체
+			sql ="select pass from itwill_board where num=?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, num);
+			
+			// 4. sql 실행
+			rs = pstmt.executeQuery();
+			
+			//5.데이터처리
+			if(rs.next()){	//데이터 있을때
+				if(pass.equals(rs.getString("pass"))){
+					
+				// 3. sql (데이터 삭제) & pstmt 객체
+					sql = "delete from itwill_board where num=?";
+					pstmt = con.prepareStatement(sql);
+					pstmt.setInt(1, num);
+					 
+					//4. sql 실행
+					pstmt.executeUpdate();							
+					check = 1;
+					System.out.println("DAO :글정보 삭제완료");
+					
+				}else{	//비번오류
+					check = 0;
+				}				
+			}else{		//글 없음
+					check = -1;			
+			}
+			
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			closeDB();
+		}
+		return check;
+		
+		}//deleteBoard()
+		
+		
+		// reInsertBoard() 답글쓰기  
+		public void reInsertBoard(BoardBean bb){
+			//글번호저장 변수
+			int num =0;
+			try {				
+				con = getCon();
+				
+				//////////////////////
+				//글번호 계산.
+				sql = "select max(num) from itwill_board";
+				pstmt = con.prepareStatement(sql);
+				
+				rs =pstmt.executeQuery();
+					
+				if(rs.next()){
+						num = rs.getInt(1)+1;
+				}
+				
+				System.out.println("DAO :답글번호 계산 "+num);
+				
+				/////////////////////////
+				//답글순서 재배치.  (답글순서는 re_seq)
+ 				//re_ref  같은그룹에 있으면서 기존의 re_seq값보다 큰값이 있을떄 (최초는 비교대상이 없어서 쿼리문실행x)
+				//re_seq값을 1증가
+				sql = "update itwill_board set re_seq = re_seq + 1 "
+						+ "where re_ref=? and re_seq > ?";
+				pstmt = con.prepareStatement(sql);
+				
+				pstmt.setInt(1, bb.getRe_ref());
+				pstmt.setInt(2, bb.getRe_seq());
+				
+				pstmt.executeUpdate();
+				
+				/////////////////////////////
+				//답글 저장.
+				sql = "insert into itwill_board values(?,?,?,?,?,?,?,?,?,now(),?,?)";
+				pstmt = con.prepareStatement(sql);
+				pstmt.setInt(1, num);
+				pstmt.setString(2, bb.getName());
+				pstmt.setString(3, bb.getPass());
+				pstmt.setString(4, bb.getSubject());
+				pstmt.setString(5, bb.getContent());
+				pstmt.setInt(6, bb.getReadcount());
+				pstmt.setInt(7, bb.getRe_ref());	//re_ref 원글의 그룹번호와 동일.
+				pstmt.setInt(8, bb.getRe_lev()+1);	//re_lev 원글의 들여쓰기 +1
+				pstmt.setInt(9, bb.getRe_seq()+1);	//re_seq 순서대로 기존값 +1
+				pstmt.setString(10, bb.getIp());
+				pstmt.setString(11, bb.getFile());
+				
+				pstmt.executeUpdate();
+				
+				System.out.println("DAO :답글작성 완료 ");				
+				
+			} catch (Exception e) {
+				e.printStackTrace();
+			}finally {
+				closeDB();
+			}
+						
+		}//reInsertBoard()
 		
 }//class

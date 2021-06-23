@@ -26,8 +26,6 @@
 	 //System.out.println(bb);
 	%>
 	
-	
-	
 	<h2>글본문내용 확인</h2>
 	<table border="1">
 		<tr>
@@ -58,9 +56,10 @@
 			<td colspan="4">
 				<input type="button" value="수정하기" onclick="location.href='updateForm.jsp?num=<%=num%>&pageNum=<%=pageNum %>';"> 
 				<input type="button" value="수정하기" 
-				onclick="location.href='updateForm.jsp?num=<%=bb.getNum()%>&pageNum=<%=pageNum %>';"> 
-				<input type="button" value="삭제하기"> 
-				<input type="button" value="답글쓰기"> 
+						onclick="location.href='updateForm.jsp?num=<%=bb.getNum()%>&pageNum=<%=pageNum %>';"> 
+				<input type="button" value="삭제하기" onclick="location.href='deleteForm.jsp?num=<%=bb.getNum() %>&pageNum=<%=pageNum %>';"> 
+				<input type="button" value="답글쓰기" 
+						onclick="location.href='reWriteForm.jsp?num=<%=bb.getNum() %>&re_ref=<%=bb.getRe_ref() %>&re_lev=<%=bb.getRe_lev() %>&re_seq=<%=bb.getRe_seq() %>';"> 
 				<input type="button" value="목록보기" onclick="location.href='list.jsp?=<%=pageNum%>';"> 
 			</td> 
 		</tr>

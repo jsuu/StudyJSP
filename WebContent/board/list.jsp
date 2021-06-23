@@ -72,18 +72,27 @@
     	// size() : 가변길이 배열의 요소의 수를 리턴하는 메서드
 		for(int i=0;i<boardList.size();i++){
 			
-			BoardBean bBean = (BoardBean)boardList.get(i);	//downcast'
+			BoardBean bb = (BoardBean)boardList.get(i);	//downcast'
 			System.out.println(i);
 	%>
 		<tr>
-			<td><%=bBean.getNum() %></td>
-		<td>	<!-- 글번호(num)클릭시 글번호오 현재페이지정보(나중 돌아왔을때 원래페이지로 오기위해) 파라미터로 -->
-				<a href='content.jsp?num=<%=bBean.getNum()%>&pageNum=<%=pageNum%>'><%=bBean.getSubject() %></a>
+			<td><%=bb.getNum() %></td>
+			<td>	<!-- 글번호(num)클릭시 글번호오 현재페이지정보(나중 돌아왔을때 원래페이지로 오기위해) 파라미터로 -->
+<!-- 			0은 일반글이므로 무조건 답글 -->
+			<%
+			int wid = 0;
+			if(bb.getRe_lev() > 0 ){	//답글일떄
+				wid = 10*bb.getRe_lev();
+			%>	
+				<img src ="level.gif" height="15" width="<%=wid%>">
+				<img src ="re.gif">
+			<%} %>	
+				<a href='content.jsp?num=<%=bb.getNum()%>&pageNum=<%=pageNum%>'><%=bb.getSubject() %></a>
 			</td>		
-			<td><%=bBean.getName() %></td>
-			<td><%=bBean.getDate() %></td>					
-			<td><%=bBean.getReadcount() %></td>	
-			<td><%=bBean.getIp() %></td>		
+			<td><%=bb.getName() %></td>
+			<td><%=bb.getDate() %></td>					
+			<td><%=bb.getReadcount() %></td>	
+			<td><%=bb.getIp() %></td>		
 		</tr>
 	
 	<%	}
