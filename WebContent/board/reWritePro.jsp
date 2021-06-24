@@ -22,6 +22,7 @@
 	<%
 	//IP주소 추가지정 (파라미터로 오는게 아니므로..)
 	bb.setIp(request.getRemoteAddr());
+	
 	String bbb=bb.toString();
 	System.out.println(bbb);
 	

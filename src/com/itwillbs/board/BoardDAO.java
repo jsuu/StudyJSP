@@ -449,7 +449,7 @@ public class BoardDAO {
 				con = getCon();
 				
 				//////////////////////
-				//글번호 계산.
+				//글번호 계산.(글번호중 가장 높은 )
 				sql = "select max(num) from itwill_board";
 				pstmt = con.prepareStatement(sql);
 				

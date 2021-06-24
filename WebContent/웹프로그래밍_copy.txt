@@ -269,6 +269,24 @@
  2		일 2		  2			  0				0
  6		답2-1	  2			  1				1
  1	 	일 1		  1			  0 			0
+ 
+ 
+ ----파일입출력--   servlets.com/
+ 
+ COS File Upload Library - cos-20.08.zip다운로드 
+ 프로젝트 - WEB-INF/lib/cos.jar 붙여넣기
+ 
+ 	//파일업로드
+ 	=> MultipartRequest 객체생성
+ 	
+	MultipartRequest multi = new MultipartRequest(
+				    		  request, 요청정보 전달
+				    		  realPath, 실제 저장되는 경로
+				    		  maxSize, 업로드파일의 크기 
+				    		  "UTF-8", 파일업로드 인코딩
+				    		  new DefaultFileRenamePolicy() 중복된 파일이름을 재정의 
+								);
+ 
   
   
  	
