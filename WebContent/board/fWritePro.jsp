@@ -32,9 +32,9 @@
 								"UTF-8",
 								new DefaultFileRenamePolicy()
 								);
-	String file = multi.getOriginalFileName("file"); 
-	//파일업로드 완료
 	System.out.println("파일업로드 완료 !----------------");
+	
+	//파일업로드 완료
 		
 		
 	//파일 다운로드 (content.jsp 에서 )
@@ -42,15 +42,26 @@
 	%>
 		
 <!-- 		글정보를 객체에 저장(BoardBean) -->
-<!-- 		파일은 파일이름만 저장 -->
+<!-- 		파일은  DB에 파일이름만 저장 -->
 		<!--bb변수명으로 객체생성  -->
 		<jsp:useBean id="bb" class="com.itwillbs.board.BoardBean"></jsp:useBean>
 		
 		<!-- form에서 전달된 모든정보 저장  -->
-		<jsp:setProperty property="*" name="bb"/>
-		
 		<%
+		String name = multi.getParameter("name"); 
+		String pass = multi.getParameter("pass"); 
+		String subject = multi.getParameter("subject"); 
+		String content = multi.getParameter("content"); 
+		String file = multi.getFilesystemName("file");
+	
+		bb.setName(name);
+		bb.setPass(pass);
+		bb.setSubject(subject);
+		bb.setContent(content);
 		bb.setFile(file);
+		bb.setIp(request.getRemoteAddr());
+		// bb.setIp(multi.getRemoteAddr());(x)
+		
 		bb.toString();
 		
 		System.out.println(bb);

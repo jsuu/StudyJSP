@@ -19,7 +19,7 @@
 	//업로드 파일크기 제한.(10MB)
 	
 	int maxSize = 10*1024*1024;  //10MB
-	String realPath = request.getRealPath("/upload");	//실제업로드 경로
+	String realPath = request.getRealPath("/upload");	//실제업로드 경로(서버저장)
 // 	String realPath = "D:/fileup";	//	진짜경로는 보안 취약
 	System.out.println("realPath: "+ realPath);	
 	
